@@ -5,15 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Firdaus Tour & Travel</title>
     
-    <!-- Menggunakan Font Poppins agar mirip dengan desain -->
+    <!-- Menggunakan Font Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --primary-color: #a44200; /* Warna coklat/orange tua khas FirdausTravel */
-            --bg-color: #fff9f5;
+            --primary-color: #a44200; 
+            --bg-color: #ffffff;
             --text-dark: #333;
             --white: #ffffff;
         }
@@ -22,7 +25,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
         }
 
         body {
@@ -34,6 +37,17 @@
         a {
             text-decoration: none;
             transition: 0.3s;
+        }
+
+        /* --- ANIMASI SCROLL --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in.show {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* --- NAVBAR --- */
@@ -59,7 +73,7 @@
         nav ul li a {
             color: var(--text-dark);
             font-weight: 500;
-            font-size: 14px;
+            font-size: 15px;
         }
 
         nav ul li a:hover {
@@ -72,10 +86,14 @@
             gap: 20px;
         }
 
-        .btn-daftar {
-            color: var(--text-dark);
+        .btn-daftar, .btn-masuk {
             font-weight: 600;
             font-size: 14px;
+            cursor: pointer;
+        }
+
+        .btn-daftar {
+            color: var(--text-dark);
         }
 
         .btn-masuk {
@@ -83,18 +101,17 @@
             color: var(--white);
             padding: 8px 24px;
             border-radius: 20px;
-            font-weight: 600;
-            font-size: 14px;
         }
 
         /* --- HERO SECTION --- */
         .hero {
-            background-color: var(--primary-color);
+            background-color: #bd4a00; /* Warna disesuaikan agar pas dengan gambar */
             margin: 10px 8% 60px;
             border-radius: 20px;
             display: flex;
             position: relative;
-            min-height: 380px;
+            min-height: 420px;
+            overflow: hidden; /* MEMASTIKAN GAMBAR TIDAK KELUAR BOX */
         }
 
         .hero-text {
@@ -112,10 +129,11 @@
         }
 
         .hero-text p {
-            font-size: 1rem;
+            font-size: 1.1rem;
             margin-bottom: 30px;
             max-width: 85%;
             line-height: 1.5;
+            font-weight: 400;
         }
 
         .btn-pesan {
@@ -135,80 +153,74 @@
         .hero-image img {
             position: absolute;
             bottom: 0;
-            right: 20px;
-            height: 130%;
+            right: 0;
+            height: 100%; /* Badan pas di dalam box */
             object-fit: contain;
-            z-index: 3;
+            z-index: 1;
         }
 
         /* --- FITUR SECTION --- */
-        /* --- UPDATE BAGIAN HERO SECTION --- */
-.hero {
-    background-color: var(--primary-color);
-    margin: 10px 4% 90px;        /* Margin samping diperkecil ke 4% agar kotak LEBIH LEBAR */
-    border-radius: 28px;
-    display: flex;
-    position: relative;
-    min-height: 480px;            /* Kotak dipertinggi agar lebih luas */
-    overflow: visible;
-}
-
-.hero-text {
-    flex: 1.1;
-    padding: 80px 40px 80px 60px;
-    color: var(--white);
-    z-index: 2;
-}
-
-.hero-text h1 {
-    font-size: 3.2rem;            /* Ukuran font judul sedikit disesuaikan dengan box yang lebih lebar */
-    font-weight: 800;
-    line-height: 1.15;
-    margin-bottom: 24px;
-}
-
-.hero-text p {
-    font-size: 1.05rem;
-    margin-bottom: 35px;
-    max-width: 85%;
-    line-height: 1.6;
-}
-
-.hero-image {
-    flex: 1.1;
-    position: relative;
-}
-
-.hero-image img {
-    position: absolute;
-    bottom: -35px;                /* Ditarik ke BAWAH keluar box sedikit (sesuai coretan Anda) */
-    right: 15px;                  /* Rata kanan */
-    height: 110%;                 /* Ukuran pas: kepala tidak lagi menabrak tombol navbar */
-    max-height: 520px;
-    object-fit: contain;
-    z-index: 3;
-    pointer-events: none;         /* Menjamin tombol tidak akan terhalang klik oleh area gambar transparan */
-}
-        
-        /* --- PAKET PERJALANAN --- */
-        .packages {
-            padding: 40px 8% 60px;
+        .features {
+            display: flex;
+            padding: 20px 8% 60px;
+            gap: 40px;
         }
 
-        .section-title {
+        .features-title {
+            flex: 1;
+        }
+
+        .features-title h2 {
             color: var(--primary-color);
-            font-size: 2.5rem;
+            font-size: 3.2rem;
             font-weight: 800;
-            margin-bottom: 30px;
-            text-align: left;
+            line-height: 1.1;
         }
 
-        .package-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+        .features-list {
+            flex: 1.5;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
         }
 
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .feature-icon {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px;
+            border-radius: 50%;
+            min-width: 45px;
+            height: 45px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+        }
+
+        .feature-text h3 {
+            color: var(--primary-color);
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .feature-text p {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #555;
+            font-weight: 500;
+        }
+
+        /* --- PAKET PERJALANAN --- */
+        .packages { padding: 40px 8% 60px; }
+        .section-title { color: var(--primary-color); font-size: 2.5rem; font-weight: 800; margin-bottom: 30px; }
+        .package-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
         .package-card {
             background-color: var(--primary-color);
             border-radius: 15px;
@@ -217,102 +229,17 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
+            transition: transform 0.3s;
         }
-
-        /* Improvisasi kolom kosong dengan gambar placeholder */
-        .package-img {
-            width: 100%;
-            height: 160px;
-            background-color: var(--white);
-            border-radius: 10px;
-            object-fit: cover;
-        }
-
-        .package-card h3 {
-            font-size: 1.1rem;
-            font-weight: 700;
-        }
-
-        .package-card p {
-            font-size: 0.85rem;
-            line-height: 1.4;
-        }
-
-        /* --- CARA BOOKING --- */
-        .booking-steps {
-            padding: 40px 8% 60px;
-            text-align: center;
-        }
-
-        .booking-steps .section-title {
-            text-align: center;
-        }
-
-        .steps-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            position: relative;
-            margin-top: 40px;
-        }
-
-        .step-box {
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 30px 20px;
-            border-radius: 15px;
-            width: 30%;
-            position: relative;
-            z-index: 2;
-        }
-
-        .step-number {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 10px;
-        }
-
-        .step-box h3 {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-        }
-
-        .step-box p {
-            font-size: 0.85rem;
-        }
-
-        /* Line connector logic */
-        .steps-container::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 10%;
-            width: 80%;
-            height: 4px;
-            background-color: var(--primary-color);
-            z-index: 1;
-        }
+        .package-card:hover { transform: translateY(-10px); }
+        .package-img { width: 100%; height: 160px; border-radius: 10px; object-fit: cover; }
+        .package-card h3 { font-size: 1.1rem; font-weight: 700; }
+        .package-card p { font-size: 0.85rem; line-height: 1.4; }
 
         /* --- CTA BANNER --- */
-        .cta-banner {
-            text-align: center;
-            padding: 60px 8%;
-        }
-
-        .cta-banner h2 {
-            color: var(--primary-color);
-            font-size: 2.2rem;
-            font-weight: 800;
-            margin-bottom: 15px;
-        }
-
-        .cta-banner p {
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            color: var(--primary-color);
-        }
-
+        .cta-banner { text-align: center; padding: 60px 8%; }
+        .cta-banner h2 { color: var(--primary-color); font-size: 2.2rem; font-weight: 800; margin-bottom: 15px; }
+        .cta-banner p { font-size: 1.1rem; margin-bottom: 30px; color: var(--primary-color); }
         .btn-admin {
             background-color: var(--primary-color);
             color: var(--white);
@@ -323,145 +250,103 @@
             display: inline-block;
         }
 
-        /* --- TESTIMONIALS --- */
-        .testimonials {
-            padding: 40px 8% 80px;
-        }
-
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-        .testi-card {
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 30px 20px;
-            border-radius: 15px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .testi-card p {
-            font-size: 0.9rem;
-            font-style: italic;
-            margin-bottom: 15px;
-        }
-
-        .testi-card h4 {
-            font-size: 1rem;
-            font-weight: 700;
-        }
-
         /* --- FOOTER --- */
         footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 30px 8%;
-            border-top: 1px solid #ddd;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 30px 8%; border-top: 1px solid #ddd;
         }
+        .footer-logo img { height: 60px; }
+        .footer-contact { text-align: center; color: var(--primary-color); font-weight: 600; }
+        .footer-brand { text-align: right; color: var(--primary-color); font-weight: 800; font-size: 1.1rem; }
 
-        .footer-logo img {
-            height: 60px;
-        }
-
-        .footer-contact {
-            text-align: center;
-            color: var(--primary-color);
-            font-weight: 600;
-        }
-
-        .footer-brand {
-            text-align: right;
-            color: var(--primary-color);
-            font-weight: 800;
-            font-size: 1.1rem;
-        }
-
-        /* --- RESPONSIVE --- */
         @media (max-width: 992px) {
-            .hero { flex-direction: column; min-height: auto; margin-top: 30px; }
-            .hero-image img { position: relative; height: 350px; right: 0; left: 50%; transform: translateX(-50%); }
-            .features, .footer { flex-direction: column; text-align: center; gap: 30px; }
-            .package-grid, .testimonial-grid { grid-template-columns: repeat(2, 1fr); }
-            .steps-container { flex-direction: column; }
-            .step-box { width: 100%; }
-            .steps-container::before { display: none; }
-            nav ul { display: none; } /* Simplified mobile nav hide */
+            .hero { flex-direction: column; min-height: auto; }
+            .hero-image img { position: relative; height: 350px; }
+            .features { flex-direction: column; gap: 30px; }
+            .package-grid { grid-template-columns: repeat(2, 1fr); }
+            nav ul { display: none; }
         }
         @media (max-width: 600px) {
-            .package-grid, .testimonial-grid { grid-template-columns: 1fr; }
+            .package-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
     <!-- Header / Navbar -->
-    <header>
-        <a href="#" class="logo">
+    <header class="fade-in">
+        <a href="index.html" class="logo">
             <img src="logo.png" alt="Firdaus Tour & Travel">
         </a>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Destinasi Trip</a></li>
-                <li><a href="#">Private Trip</a></li>
-                <li><a href="#">Hubungi Kami</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="destinasi.html">Destinasi Trip</a></li>
+                <li><a href="destinasi.html">Private Trip</a></li>
+                <li><a href="https://wa.me/628122230366?text=Halo%20Admin%20FirdausTravel,%20saya%20ingin%20bertanya..." target="_blank">Hubungi Kami</a></li>
             </ul>
         </nav>
         <div class="auth-buttons">
-            <a href="#" class="btn-daftar">Daftar</a>
-            <a href="#" class="btn-masuk">Masuk</a>
+            <!-- Alert Popup untuk Login/Daftar -->
+            <a href="#" class="btn-daftar" onclick="alertMaintenance()">Daftar</a>
+            <a href="#" class="btn-masuk" onclick="alertMaintenance()">Masuk</a>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero fade-in">
         <div class="hero-text">
             <h1>Rental Mobil & Wisata Praktis Tanpa Ribet!</h1>
             <p>Solusi rental mobil include driver untuk segala kebutuhan trip, perjalanan bisnis dan wishlist wisata anda!</p>
-            <a href="#" class="btn-pesan">Pesan Sekarang!</a>
+            <a href="https://wa.me/628122230366?text=Halo%20Admin,%20saya%20ingin%20pesan%20layanan%20FirdausTravel." target="_blank" class="btn-pesan">Pesan Sekarang!</a>
         </div>
         <div class="hero-image">
             <img src="mobil-hero.png" alt="Armada dan Driver">
         </div>
     </section>
 
-    <!-- Kenapa Harus Pilih Kami -->
-    <section class="features">
+    <!-- Kenapa Harus Pilih Kami (Dengan Ikon) -->
+    <section class="features fade-in">
         <div class="features-title">
             <h2>Kenapa harus pilih Firdaus Tour & Travel?</h2>
         </div>
         <div class="features-list">
             <div class="feature-item">
-                <h3>Banyak Pilihan Destinasi</h3>
-                <p>Mau liburan ke Bandung, Lembang, Jogja, hingga Surabaya? Mau wisata gunung atau pantai, rutenya fleksibel sesuai keinginanmu.</p>
+                <div class="feature-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                <div class="feature-text">
+                    <h3>Banyak Pilihan Destinasi</h3>
+                    <p>Mau liburan ke Bandung, Lembang, Jogja, hingga Surabaya? Mau wisata gunung atau pantai, rutenya fleksibel sesuai keinginanmu.</p>
+                </div>
             </div>
             <div class="feature-item">
-                <h3>Driver Berpengalaman & Ramah</h3>
-                <p>Driver Profesional yang hafal rute, siap mengemudi dengan aman, sopan dan mengutamakan kenyamanan selama perjalanan.</p>
+                <div class="feature-icon"><i class="fa-solid fa-user-tie"></i></div>
+                <div class="feature-text">
+                    <h3>Driver Berpengalaman & Ramah</h3>
+                    <p>Driver Profesional yang hafal rute, siap mengemudi dengan aman, sopan dan mengutamakan kenyamanan selama perjalanan.</p>
+                </div>
             </div>
             <div class="feature-item">
-                <h3>Armada Bersih, Nyaman & Terawat</h3>
-                <p>Unit kendaraan selalu dalam kondisi prima, wangi, ber-AC dingin, dan rutin diservis demi keamanan perjalanan jauh.</p>
+                <div class="feature-icon"><i class="fa-solid fa-car-side"></i></div>
+                <div class="feature-text">
+                    <h3>Armada Bersih, Nyaman & Terawat</h3>
+                    <p>Unit kendaraan selalu dalam kondisi prima, wangi, ber-AC dingin, dan rutin diservis demi keamanan perjalanan jauh.</p>
+                </div>
             </div>
             <div class="feature-item">
-                <h3>Harga Terjangkau & Transparan</h3>
-                <p>Paket rental mobil + Driver maupun tour dengan harga ramah kantong, tanpa biaya tersembunyi.</p>
+                <div class="feature-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                <div class="feature-text">
+                    <h3>Harga Terjangkau & Transparan</h3>
+                    <p>Paket rental mobil + Driver maupun tour dengan harga ramah kantong, tanpa biaya tersembunyi.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Pilihan Rute & Paket -->
-    <section class="packages">
+    <section class="packages fade-in">
         <h2 class="section-title">Pilihan Rute &<br>Paket Perjalanan</h2>
         <div class="package-grid">
             <div class="package-card">
-                <!-- Improvisasi gambar, URL bisa diganti aset lokal nanti -->
                 <img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?auto=format&fit=crop&w=400&q=80" alt="City Tour" class="package-img">
                 <h3>Paket City Tour / Dropping</h3>
                 <p>Antar-jemput bandara, stasiun, dinas kantor, keliling kota atau kirim barang secara instan.</p>
@@ -471,11 +356,13 @@
                 <h3>Paket Trip & Wisata</h3>
                 <p>Liburan seru dan santai ke berbagai spot wisata populer di Bandung, Bogor, Garut dan Wisata hidden gems yang ada di Jawa Barat.</p>
             </div>
-            <div class="package-card">
-                <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=400&q=80" alt="Antar Kota" class="package-img">
-                <h3>Paket Antar Kota & Provinsi</h3>
-                <p>Perjalanan jauh antar kota jadi lebih nyaman, aman dan bebas lelah dengan driver berpengalaman via jalur TOL.</p>
-            </div>
+            <a href="destinasi.html" style="text-decoration: none;">
+                <div class="package-card">
+                    <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=400&q=80" alt="Trip Garut" class="package-img">
+                    <h3>Special Trip Garut (Klik)</h3>
+                    <p>Nikmati pesona alam pegunungan dan kuliner legendaris khas Garut. Klik untuk info selengkapnya.</p>
+                </div>
+            </a>
             <div class="package-card">
                 <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=400&q=80" alt="Custom Rute" class="package-img">
                 <h3>Custom Rute</h3>
@@ -484,71 +371,37 @@
         </div>
     </section>
 
-    <!-- Cara Booking -->
-    <section class="booking-steps">
-        <h2 class="section-title">Cara Booking</h2>
-        <div class="steps-container">
-            <div class="step-box" style="margin-top: -40px;">
-                <div class="step-number">1</div>
-                <h3>Hubungi Admin via Whatsapp</h3>
-                <p>Tentukan tanggal keberangkatan, rute tujuan dan jumlah orang yang ikut.</p>
-            </div>
-            <div class="step-box" style="margin-top: 40px;">
-                <div class="step-number">2</div>
-                <h3>Konfirmasi & DP</h3>
-                <p>Amankan jadwal trip dengan pembayaran uang muka (DP) sesuai kesepakatan.</p>
-            </div>
-            <div class="step-box" style="margin-top: -40px;">
-                <div class="step-number">3</div>
-                <h3>Driver Jemput di Lokasi</h3>
-                <p>Driver siap menjemput tepat waktu di lokasi yang kamu tentukan. Tinggal duduk santai!</p>
-            </div>
-        </div>
-    </section>
-
     <!-- Call to Action Banner -->
-    <section class="cta-banner">
+    <section class="cta-banner fade-in">
         <h2>Butuh Sewa Mobil + Driver<br>Nyaman untuk Hari Ini?</h2>
         <p>Dapatkan penawaran harga terbaik<br>dan nikmati perjalanan aman tanpa repot menyetir!</p>
-        <a href="#" class="btn-admin">Hubungi Admin</a>
-    </section>
-
-    <!-- Testimonials (Improvisasi Ulasan) -->
-    <section class="testimonials">
-        <h2 class="section-title" style="margin-bottom: 20px;">Apa Kata Mereka<br>Tentang FirdausTravel?</h2>
-        <div class="testimonial-grid">
-            <div class="testi-card">
-                <p>"Sangat puas! Driver ramah dan mobil bersih banget. Liburan bareng keluarga jadi nyaman dan aman tanpa capek nyetir."</p>
-                <h4>- Budi, Jakarta</h4>
-            </div>
-            <div class="testi-card">
-                <p>"Harga transparan dan terjangkau. Tidak ada biaya tersembunyi seperti travel lain. Sangat direkomendasikan!"</p>
-                <h4>- Siti, Bandung</h4>
-            </div>
-            <div class="testi-card">
-                <p>"Antar jemput tepat waktu, sangat membantu untuk urusan dinas kantor ke luar kota mendadak. Mantap!"</p>
-                <h4>- Andi, Surabaya</h4>
-            </div>
-            <div class="testi-card">
-                <p>"Mobilnya wangi dan AC dingin poll. Perjalanan jauh lewat tol gak kerasa capek sama sekali. Next pasti order lagi."</p>
-                <h4>- Rina, Bogor</h4>
-            </div>
-        </div>
+        <a href="https://wa.me/628122230366?text=Halo%20Admin,%20saya%20butuh%20sewa%20mobil%20hari%20ini." target="_blank" class="btn-admin">Hubungi Admin</a>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-logo">
-            <img src="logo.png" alt="Firdaus Travel">
-        </div>
-        <div class="footer-contact">
-            <p>Contact Us:</p>
-            <p>📞 08122230366</p>
-        </div>
-        <div class="footer-brand">
-            <p>FIRDAUS TOUR<br>AND TRAVEL</p>
-        </div>
+    <footer class="fade-in">
+        <div class="footer-logo"><img src="logo.png" alt="Firdaus Travel"></div>
+        <div class="footer-contact"><p>Contact Us:</p><p>📞 08122230366</p></div>
+        <div class="footer-brand"><p>FIRDAUS TOUR<br>AND TRAVEL</p></div>
     </footer>
 
+    <!-- SCRIPT UNTUK ANIMASI SCROLL & ALERT -->
+    <script>
+        // Alert untuk Tombol Daftar/Masuk
+        function alertMaintenance() {
+            alert("Mohon maaf, sistem pendaftaran dan akun saat ini sedang dalam proses update & pemeliharaan untuk meningkatkan layanan kami.\n\nSilakan klik tombol 'Hubungi Kami' atau 'Pesan Sekarang' untuk terhubung langsung dengan admin kami via WhatsApp.");
+        }
+
+        // Animasi Scroll (Fade In)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        });
+        const hiddenElements = document.querySelectorAll('.fade-in');
+        hiddenElements.forEach((el) => observer.observe(el));
+    </script>
 </body>
 </html>
