@@ -61,6 +61,8 @@
             align-items: center;
             padding: 20px 8%;
             background: transparent;
+            position: relative;
+            z-index: 100;
         }
         .logo img { height: 50px; object-fit: contain; }
         nav ul { display: flex; gap: 30px; list-style: none; }
@@ -70,6 +72,19 @@
         .btn-daftar, .btn-masuk { font-weight: 600; font-size: 14px; cursor: pointer; }
         .btn-daftar { color: var(--text-dark); }
         .btn-masuk { background-color: var(--primary-color); color: var(--white); padding: 8px 24px; border-radius: 20px; }
+
+        /* Tombol Hamburger Menu (Awalnya disembunyikan di desktop) */
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+        
+        /* Auth Button Khusus HP (Awalnya disembunyikan) */
+        .mobile-auth {
+            display: none;
+        }
 
         /* --- HERO SECTION --- */
         .hero {
@@ -144,13 +159,46 @@
         .footer-contact { text-align: center; color: var(--primary-color); font-weight: 600; }
         .footer-brand { text-align: right; color: var(--primary-color); font-weight: 800; font-size: 1.1rem; }
 
+        /* --- RESPONSIVE MEDIA QUERIES --- */
         @media (max-width: 992px) {
+            header {
+                background: var(--white); /* Supaya menunya tidak transparan saat dibuka */
+                padding: 15px 5%;
+            }
+            .auth-buttons { display: none; } /* Sembunyikan auth button bawaan di HP */
+            .menu-toggle { display: block; } /* Munculkan hamburger menu */
+            
+            nav {
+                display: none; /* Sembunyikan dropdown secara default */
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                padding: 20px 0;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+            nav.active {
+                display: block; /* Munculkan saat ditekan */
+            }
+            nav ul {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            .mobile-auth {
+                display: flex;
+                justify-content: center;
+                gap: 15px;
+                margin-top: 25px;
+            }
+
             .hero { flex-direction: column; min-height: auto; }
             .hero-image img { position: relative; height: 350px; }
             .features, .faq-container { flex-direction: column; gap: 30px; }
             .package-grid { grid-template-columns: repeat(2, 1fr); }
-            nav ul { display: none; }
         }
+        
         @media (max-width: 600px) {
             .package-grid { grid-template-columns: 1fr; }
             .faq-title { font-size: 2rem; }
@@ -164,16 +212,28 @@
         <a href="index.html" class="logo">
             <img src="logo.png" alt="Firdaus Tour & Travel">
         </a>
-        <nav>
+
+        <!-- Tombol Hamburger Menu (Mulai Terlihat di HP) -->
+        <div class="menu-toggle" id="mobile-menu" onclick="toggleMenu()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <nav id="nav-menu">
             <ul>
-                <!-- MENU SUDAH DIUPDATE DI SINI -->
                 <li><a href="index.html">Home</a></li>
                 <li><a href="destinasi.html">Destinasi Trip</a></li>
                 <li><a href="private-trip.html">Private Trip</a></li>
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="https://wa.me/628122230366?text=Halo%20Admin%20FirdausTravel..." target="_blank">Hubungi Kami</a></li>
             </ul>
+            <!-- Auth Buttons Khusus Masuk ke Dalam Menu HP -->
+            <div class="mobile-auth">
+                <a href="#" class="btn-daftar" onclick="alertMaintenance()">Daftar</a>
+                <a href="#" class="btn-masuk" onclick="alertMaintenance()">Masuk</a>
+            </div>
         </nav>
+
+        <!-- Auth Buttons Bawaan Desktop -->
         <div class="auth-buttons">
             <a href="#" class="btn-daftar" onclick="alertMaintenance()">Daftar</a>
             <a href="#" class="btn-masuk" onclick="alertMaintenance()">Masuk</a>
@@ -362,6 +422,12 @@
             alert("Mohon maaf, sistem pendaftaran dan akun saat ini sedang dalam proses update & pemeliharaan.\n\nSilakan hubungi admin kami via WhatsApp untuk pemesanan.");
         }
 
+        // FUNGSI UNTUK MEMUNCULKAN MENU DI HP
+        function toggleMenu() {
+            const navMenu = document.getElementById("nav-menu");
+            navMenu.classList.toggle("active");
+        }
+
         // Animasi Fade In Scroll
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
@@ -380,18 +446,15 @@
                 const icon = this.querySelector('i');
                 const isActive = body.classList.contains('active');
 
-                // Tutup semua body terlebih dahulu
                 document.querySelectorAll('.accordion-body').forEach(b => {
                     b.classList.remove('active');
                 });
                 
-                // Kembalikan semua icon ke "plus"
                 document.querySelectorAll('.accordion-header i').forEach(i => {
                     i.classList.remove('fa-minus');
                     i.classList.add('fa-plus');
                 });
 
-                // Jika yang diklik sebelumnya tidak aktif, buka (jadikan aktif)
                 if (!isActive) {
                     body.classList.add('active');
                     icon.classList.remove('fa-plus');
