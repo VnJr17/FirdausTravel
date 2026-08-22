@@ -142,42 +142,53 @@
         }
 
         /* --- FITUR SECTION --- */
-        .features {
-            display: flex;
-            padding: 20px 8% 60px;
-            gap: 40px;
-        }
+        /* --- UPDATE BAGIAN HERO SECTION --- */
+.hero {
+    background-color: var(--primary-color);
+    margin: 10px 4% 90px;        /* Margin samping diperkecil ke 4% agar kotak LEBIH LEBAR */
+    border-radius: 28px;
+    display: flex;
+    position: relative;
+    min-height: 480px;            /* Kotak dipertinggi agar lebih luas */
+    overflow: visible;
+}
 
-        .features-title {
-            flex: 1;
-        }
+.hero-text {
+    flex: 1.1;
+    padding: 80px 40px 80px 60px;
+    color: var(--white);
+    z-index: 2;
+}
 
-        .features-title h2 {
-            color: var(--primary-color);
-            font-size: 3rem;
-            font-weight: 800;
-            line-height: 1.1;
-        }
+.hero-text h1 {
+    font-size: 3.2rem;            /* Ukuran font judul sedikit disesuaikan dengan box yang lebih lebar */
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 24px;
+}
 
-        .features-list {
-            flex: 1.5;
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
+.hero-text p {
+    font-size: 1.05rem;
+    margin-bottom: 35px;
+    max-width: 85%;
+    line-height: 1.6;
+}
 
-        .feature-item h3 {
-            color: var(--primary-color);
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
+.hero-image {
+    flex: 1.1;
+    position: relative;
+}
 
-        .feature-item p {
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
+.hero-image img {
+    position: absolute;
+    bottom: -35px;                /* Ditarik ke BAWAH keluar box sedikit (sesuai coretan Anda) */
+    right: 15px;                  /* Rata kanan */
+    height: 110%;                 /* Ukuran pas: kepala tidak lagi menabrak tombol navbar */
+    max-height: 520px;
+    object-fit: contain;
+    z-index: 3;
+    pointer-events: none;         /* Menjamin tombol tidak akan terhalang klik oleh area gambar transparan */
+}
         /* --- PAKET PERJALANAN --- */
         .packages {
             padding: 40px 8% 60px;
