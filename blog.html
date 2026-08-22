@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog & Artikel Wisata - Firdaus Tour & Travel</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo.png">
+    
+    <!-- Font Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #a44200; 
+            --secondary-color: #d95e00;
+            --bg-color: #f8f9fa; /* Latar belakang sedikit abu agar kartu menonjol */
+            --text-dark: #333;
+            --text-light: #666;
+            --white: #ffffff;
+            --border-color: #eaeaea;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; transition: 0.3s; }
+
+        /* --- ANIMASI --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in.show { opacity: 1; transform: translateY(0); }
+
+        /* --- NAVBAR --- */
+        header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 8%; background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: relative;
+            z-index: 10;
+        }
+        .logo img { height: 50px; object-fit: contain; }
+        nav ul { display: flex; gap: 30px; list-style: none; }
+        nav ul li a { color: var(--text-dark); font-weight: 500; font-size: 15px; }
+        nav ul li a:hover, nav ul li a.active { color: var(--primary-color); font-weight: 700; }
+        .auth-buttons { display: flex; align-items: center; gap: 20px; }
+        .btn-daftar { font-weight: 600; font-size: 14px; cursor: pointer; color: var(--text-dark); }
+        .btn-masuk { background-color: var(--primary-color); color: var(--white); padding: 8px 24px; border-radius: 20px; font-weight: 600; font-size: 14px; }
+
+        /* --- BLOG HERO SECTION --- */
+        .blog-hero {
+            background: linear-gradient(135deg, #7a3100, var(--primary-color));
+            padding: 80px 8% 120px;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+        }
+        .blog-hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 15px; letter-spacing: -0.5px; }
+        .blog-hero p { font-size: 1.1rem; font-weight: 400; max-width: 700px; margin: 0 auto; line-height: 1.6; opacity: 0.9; }
+        
+        /* Dekorasi Gelombang (Sesuai Referensi Gambar) */
+        .wave-divider {
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            line-height: 0;
+        }
+        .wave-divider svg { display: block; width: calc(100% + 1.3px); height: 60px; }
+        .wave-divider path { fill: var(--bg-color); }
+
+        /* --- BLOG GRID SECTION --- */
+        .blog-container { padding: 40px 8% 80px; }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        /* --- BLOG CARDS --- */
+        .blog-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .blog-img-wrapper { position: relative; height: 220px; overflow: hidden; }
+        .blog-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .blog-card:hover .blog-img-wrapper img { transform: scale(1.05); }
+        
+        .blog-tag {
+            position: absolute;
+            top: 15px; right: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            color: var(--white);
+            padding: 5px 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .blog-content { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; }
+        .blog-title {
+            font-size: 1.25rem; font-weight: 700; color: #222;
+            margin-bottom: 15px; line-height: 1.4;
+        }
+        .blog-excerpt {
+            font-size: 0.95rem; color: var(--text-light);
+            line-height: 1.6; margin-bottom: 25px; flex-grow: 1;
+        }
+        
+        .read-more {
+            font-size: 0.9rem; font-weight: 700; color: var(--primary-color);
+            text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 20px;
+            display: inline-block; transition: color 0.3s;
+        }
+        .read-more:hover { color: var(--secondary-color); text-decoration: underline; }
+
+        .blog-meta {
+            font-size: 0.8rem; color: #999;
+            border-top: 1px solid var(--border-color);
+            padding-top: 15px; display: flex; align-items: center; gap: 5px;
+        }
+
+        /* --- PAGINATION --- */
+        .pagination {
+            display: flex; justify-content: center; align-items: center;
+            gap: 10px; margin-top: 50px;
+        }
+        .pagination a, .pagination span {
+            display: flex; justify-content: center; align-items: center;
+            width: 40px; height: 40px; border-radius: 5px;
+            font-size: 1rem; font-weight: 600; color: var(--text-light);
+            transition: all 0.3s;
+        }
+        .pagination a:hover { background: #eee; color: var(--primary-color); }
+        .pagination a.active { background: var(--primary-color); color: var(--white); }
+        .pagination span { cursor: default; }
+
+        /* --- FOOTER --- */
+        footer {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 30px 8%; background: var(--white); border-top: 1px solid var(--border-color);
+        }
+        .footer-logo img { height: 60px; }
+        .footer-contact { text-align: center; color: var(--primary-color); font-weight: 600; }
+        .footer-brand { text-align: right; color: var(--primary-color); font-weight: 800; font-size: 1.1rem; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 992px) {
+            .blog-grid { grid-template-columns: repeat(2, 1fr); }
+            nav ul { display: none; }
+        }
+        @media (max-width: 600px) {
+            .blog-hero h1 { font-size: 2.2rem; }
+            .blog-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header>
+        <a href="index.html" class="logo">
+            <img src="logo.png" alt="Firdaus Tour & Travel">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="destinasi.html">Destinasi Trip</a></li>
+                <li><a href="private-trip.html">Private Trip</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+                <li><a href="https://wa.me/628122230366?text=Halo%20Admin%20FirdausTravel..." target="_blank">Hubungi Kami</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <a href="#" class="btn-daftar" onclick="alertMaintenance()">Daftar</a>
+            <a href="#" class="btn-masuk" onclick="alertMaintenance()">Masuk</a>
+        </div>
+    </header>
+
+    <!-- Blog Hero Section -->
+    <section class="blog-hero fade-in">
+        <h1>Artikel Wisata Pilihan</h1>
+        <p>Dapatkan informasi wisata seputar alam, kuliner, dan sejarah menarik di Garut dan sekitarnya. Selamat berpetualang dan menikmati keindahan alam!</p>
+        
+        <!-- Efek Kertas Sobek (Sesuai Referensi) -->
+        <div class="wave-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118,130.42,122.9,190.8,103.87,242.66,87.56,275.64,64.88,321.39,56.44Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Blog List Section -->
+    <section class="blog-container fade-in">
+        <div class="blog-grid">
+            
+            <!-- Artikel 1 -->
+            <div class="blog-card">
+                <div class="blog-img-wrapper">
+                    <span class="blog-tag">Destinasi</span>
+                    <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=600&q=80" alt="Kawah Papandayan">
+                </div>
+                <div class="blog-content">
+                    <h3 class="blog-title">Panduan Lengkap Mendaki Gunung Papandayan untuk Pemula</h3>
+                    <p class="blog-excerpt">Gunung Papandayan sangat ramah untuk pendaki pemula. Temukan rute terbaik, padang edelweis yang memukau, dan persiapan apa saja yang harus dibawa...</p>
+                    <a href="#" class="read-more">Read More »</a>
+                    <div class="blog-meta">Agustus 12, 2026 • 2 Comments</div>
+                </div>
+            </div>
+
+            <!-- Artikel 2 -->
+            <div class="blog-card">
+                <div class="blog-img-wrapper">
+                    <span class="blog-tag">Kuliner Lokal</span>
+                    <img src="https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&w=600&q=80" alt="Kuliner Garut">
+                </div>
+                <div class="blog-content">
+                    <h3 class="blog-title">Wisata Kuliner Garut: Lebih dari Sekadar Dodol dan Baso Aci</h3>
+                    <p class="blog-excerpt">Membahas Garut tak lengkap rasanya tanpa mengulik kulinernya. Berikut adalah deretan makanan khas lokal yang wajib Anda cicipi saat berlibur...</p>
+                    <a href="#" class="read-more">Read More »</a>
+                    <div class="blog-meta">Agustus 05, 2026 • 5 Comments</div>
+                </div>
+            </div>
+
+            <!-- Artikel 3 -->
+            <div class="blog-card">
+                <div class="blog-img-wrapper">
+                    <span class="blog-tag">Sejarah</span>
+                    <img src="https://images.unsplash.com/photo-1584346830509-3a32f62cb9bd?auto=format&fit=crop&w=600&q=80" alt="Candi Cangkuang">
+                </div>
+                <div class="blog-content">
+                    <h3 class="blog-title">Sejarah Menarik Candi Cangkuang & Jejak Kampung Adat Pulo</h3>
+                    <p class="blog-excerpt">Menyusuri satu-satunya candi Hindu di Jawa Barat dan melihat bagaimana toleransi serta adat istiadat leluhur masih dijaga erat di Kampung Pulo...</p>
+                    <a href="#" class="read-more">Read More »</a>
+                    <div class="blog-meta">Juli 28, 2026 • 0 Comments</div>
+                </div>
+            </div>
+
+            <!-- Artikel 4 -->
+            <div class="blog-card">
+                <div class="blog-img-wrapper">
+                    <span class="blog-tag">Tips Liburan</span>
+                    <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=600&q=80" alt="Tips Liburan">
+                </div>
+                <div class="blog-content">
+                    <h3 class="blog-title">Checklist Barang yang Wajib Dibawa Saat Trip ke Pegunungan Garut</h3>
+                    <p class="blog-excerpt">Suhu udara di daerah pegunungan seperti Darajat dan Cikuray bisa sangat dingin. Pastikan 5 barang esensial ini sudah ada di dalam tas Anda...</p>
+                    <a href="#" class="read-more">Read More »</a>
+                    <div class="blog-meta">Juli 15, 2026 • 1 Comments</div>
+                </div>
+            </div>
+
+            <!-- Artikel 5 -->
+            <div class="blog-card">
+                <div class="blog-img-wrapper">
+                    <span class="blog-tag">Akomodasi</span>
+                    <img src="https://images.unsplash.com/photo-1542314831-c6a4d27ece50?auto=format&fit=crop&w=600&q=80" alt="Glamping Garut">
+                </div>
+                <div class="blog-content">
+                    <h3 class="blog-title">5 Rekomendasi Glamping Pinggir Danau Terbaik di Jawa Barat</h3>
+                    <p class="blog-excerpt">Menawarkan sensasi menginap di alam terbuka namun dengan fasilitas sekelas hotel bintang lima. Cocok untuk liburan keluarga atau *honeymoon*...</p>
+                    <a href="#" class="read-more">Read More »</a>
+                    <div class="blog-meta">Juni 30, 2026 • 8 Comments</div>
+                </div>
+            </div>
+
+            <!-- Artikel 6 -->
+            <div class="blog-card">
+                <div class="blog-img-wrapper">
+                    <span class="blog-tag">Keluarga</span>
+                    <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=600&q=80" alt="Pemandian Air Panas">
+                </div>
+                <div class="blog-content">
+                    <h3 class="blog-title">Menikmati Sensasi Pemandian Air Panas Alami di Darajat Pass</h3>
+                    <p class="blog-excerpt">Melepas penat setelah seharian bekerja dengan berendam di air panas alami bersumber dari kawah gunung. Destinasi favorit warga kota di akhir pekan...</p>
+                    <a href="#" class="read-more">Read More »</a>
+                    <div class="blog-meta">Juni 18, 2026 • 3 Comments</div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bagian Pagination (Angka Halaman) -->
+        <div class="pagination">
+            <a href="#" class="active">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <span>...</span>
+            <a href="#">&raquo;</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="fade-in">
+        <div class="footer-logo"><img src="logo.png" alt="Firdaus Travel"></div>
+        <div class="footer-contact"><p>Contact Us:</p><p>📞 08122230366</p></div>
+        <div class="footer-brand"><p>FIRDAUS TOUR<br>AND TRAVEL</p></div>
+    </footer>
+
+    <script>
+        // Alert untuk tombol auth
+        function alertMaintenance() {
+            alert("Mohon maaf, sistem pendaftaran saat ini sedang dalam proses update.\n\nSilakan hubungi admin kami via WhatsApp.");
+        }
+
+        // Animasi Scroll (Fade In)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        });
+        document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+    </script>
+</body>
+</html>
