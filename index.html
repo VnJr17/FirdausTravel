@@ -65,7 +65,7 @@
         .logo img { height: 50px; object-fit: contain; }
         nav ul { display: flex; gap: 30px; list-style: none; }
         nav ul li a { color: var(--text-dark); font-weight: 500; font-size: 15px; }
-        nav ul li a:hover { color: var(--primary-color); }
+        nav ul li a:hover { color: var(--primary-color); font-weight: 700; }
         .auth-buttons { display: flex; align-items: center; gap: 20px; }
         .btn-daftar, .btn-masuk { font-weight: 600; font-size: 14px; cursor: pointer; }
         .btn-daftar { color: var(--text-dark); }
@@ -137,7 +137,7 @@
             background-color: #fafafa; color: #555; line-height: 1.6; font-size: 0.95rem;
         }
         .accordion-body.active { max-height: 500px; padding: 0 20px 20px 50px; }
-        
+
         /* --- FOOTER --- */
         footer { display: flex; justify-content: space-between; align-items: center; padding: 30px 8%; border-top: 1px solid #ddd; }
         .footer-logo img { height: 60px; }
@@ -166,9 +166,11 @@
         </a>
         <nav>
             <ul>
+                <!-- MENU SUDAH DIUPDATE DI SINI -->
                 <li><a href="index.html">Home</a></li>
                 <li><a href="destinasi.html">Destinasi Trip</a></li>
-                <li><a href="destinasi.html">Private Trip</a></li>
+                <li><a href="private-trip.html">Private Trip</a></li>
+                <li><a href="blog.html">Blog</a></li>
                 <li><a href="https://wa.me/628122230366?text=Halo%20Admin%20FirdausTravel..." target="_blank">Hubungi Kami</a></li>
             </ul>
         </nav>
@@ -203,7 +205,6 @@
                     <p>Mau liburan ke Bandung, Lembang, Jogja, hingga Surabaya? Mau wisata gunung atau pantai, rutenya fleksibel sesuai keinginanmu.</p>
                 </div>
             </div>
-            <!-- Fitur lainnya dipersingkat untuk kejelasan, struktur tetap dipertahankan -->
             <div class="feature-item">
                 <div class="feature-icon"><i class="fa-solid fa-user-tie"></i></div>
                 <div class="feature-text">
@@ -239,7 +240,6 @@
                     <p>Antar-jemput bandara, stasiun, dinas kantor, keliling kota atau kirim barang secara instan.</p>
                 </div>
             </a>
-            <!-- 3 paket lainnya -->
             <a href="destinasi.html" style="text-decoration:none; color:inherit;">
                 <div class="package-card">
                     <img src="https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?auto=format&fit=crop&w=400&q=80" alt="Trip Wisata" class="package-img">
@@ -254,10 +254,10 @@
                     <p>Nikmati pesona alam pegunungan dan kuliner legendaris khas Garut. Klik untuk info selengkapnya.</p>
                 </div>
             </a>
-            <a href="destinasi.html" style="text-decoration:none; color:inherit;">
+            <a href="private-trip.html" style="text-decoration:none; color:inherit;">
                 <div class="package-card">
                     <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=400&q=80" alt="Custom Rute" class="package-img">
-                    <h3>Custom Rute</h3>
+                    <h3>Custom Rute (Private Trip)</h3>
                     <p>Bebas tentukan titik jemput, tujuan singgah, dan jadwal perjalanan sendiri sesuai kebutuhan acaramu.</p>
                 </div>
             </a>
@@ -271,11 +271,10 @@
         <a href="https://wa.me/628122230366?text=Halo%20Admin..." target="_blank" class="btn-admin">Hubungi Admin</a>
     </section>
 
-    <!-- FAQ SECTION (BARU DITAMBAHKAN) -->
+    <!-- FAQ SECTION -->
     <section class="faq-section fade-in">
         <div class="faq-container">
             <div class="faq-image">
-                <!-- Ganti link gambar ini dengan gambar Anda sendiri -->
                 <img src="https://images.unsplash.com/photo-1555400038-63f5ba517a47?auto=format&fit=crop&w=600&q=80" alt="Gambar Referensi Tour">
             </div>
             
@@ -283,18 +282,15 @@
                 <h2 class="faq-title">Pertanyaan Yang Sering Diajukan</h2>
                 <div class="accordion">
                     
-                    <!-- Item FAQ 1 -->
                     <div class="accordion-item">
                         <button class="accordion-header">
                             <i class="fa-solid fa-minus"></i> Apakah Jadwal Perjalanan Fixed?
                         </button>
-                        <!-- Class active default terbuka untuk item pertama seperti di screenshot -->
                         <div class="accordion-body active">
                             Itinerary/ jadwal perjalanan dapat berubah sewaktu-waktu karena beberapa faktor seperti alam dan kejadian tak terduga di lapangan Kami berhak merubah jadwal secara mendadak demi kelancaran dan keamanan perjalanan wisata.
                         </div>
                     </div>
 
-                    <!-- Item FAQ 2 -->
                     <div class="accordion-item">
                         <button class="accordion-header">
                             <i class="fa-solid fa-plus"></i> Mekanisme Pembayaran
@@ -304,7 +300,6 @@
                         </div>
                     </div>
 
-                    <!-- Item FAQ 3 -->
                     <div class="accordion-item">
                         <button class="accordion-header">
                             <i class="fa-solid fa-plus"></i> Pembatalan Trip Wisata
@@ -314,7 +309,6 @@
                         </div>
                     </div>
 
-                    <!-- Item FAQ 4 -->
                     <div class="accordion-item">
                         <button class="accordion-header">
                             <i class="fa-solid fa-plus"></i> Minimum Jumlah Peserta
@@ -324,7 +318,6 @@
                         </div>
                     </div>
 
-                    <!-- Item FAQ 5 -->
                     <div class="accordion-item">
                         <button class="accordion-header">
                             <i class="fa-solid fa-plus"></i> Harga Anak dan Balita
@@ -334,7 +327,6 @@
                         </div>
                     </div>
 
-                    <!-- Item FAQ 6 -->
                     <div class="accordion-item">
                         <button class="accordion-header">
                             <i class="fa-solid fa-plus"></i> Biaya Tambahan
@@ -344,7 +336,6 @@
                         </div>
                     </div>
 
-                    <!-- Item FAQ 7 -->
                     <div class="accordion-item">
                         <button class="accordion-header">
                             <i class="fa-solid fa-plus"></i> Kecelakaan
