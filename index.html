@@ -38,9 +38,45 @@
             overflow-x: hidden;
         }
 
+        /* --- MENCEGAH SCROLL SAAT LOADING --- */
+        body.loading-active {
+            overflow: hidden;
+        }
+
         a {
             text-decoration: none;
             transition: 0.3s;
+        }
+
+        /* --- LOADING SCREEN (PRELOADER) --- */
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999; /* Selalu di atas segalanya */
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+
+        #loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* Efek denyut pada logo loading */
+        .loader-logo {
+            width: 120px; /* Ukuran bisa disesuaikan jika kurang besar/kecil */
+            animation: pulse 1s infinite alternate ease-in-out;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.9); opacity: 0.8; }
+            100% { transform: scale(1.1); opacity: 1; }
         }
 
         /* --- ANIMASI SCROLL --- */
@@ -161,37 +197,19 @@
 
         /* --- RESPONSIVE MEDIA QUERIES --- */
         @media (max-width: 992px) {
-            header {
-                background: var(--white); /* Supaya menunya tidak transparan saat dibuka */
-                padding: 15px 5%;
-            }
-            .auth-buttons { display: none; } /* Sembunyikan auth button bawaan di HP */
-            .menu-toggle { display: block; } /* Munculkan hamburger menu */
+            header { background: var(--white); padding: 15px 5%; }
+            .auth-buttons { display: none; } 
+            .menu-toggle { display: block; } 
             
             nav {
-                display: none; /* Sembunyikan dropdown secara default */
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: var(--white);
-                padding: 20px 0;
+                display: none; 
+                position: absolute; top: 100%; left: 0; width: 100%;
+                background: var(--white); padding: 20px 0;
                 box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             }
-            nav.active {
-                display: block; /* Munculkan saat ditekan */
-            }
-            nav ul {
-                flex-direction: column;
-                gap: 20px;
-                text-align: center;
-            }
-            .mobile-auth {
-                display: flex;
-                justify-content: center;
-                gap: 15px;
-                margin-top: 25px;
-            }
+            nav.active { display: block; }
+            nav ul { flex-direction: column; gap: 20px; text-align: center; }
+            .mobile-auth { display: flex; justify-content: center; gap: 15px; margin-top: 25px; }
 
             .hero { flex-direction: column; min-height: auto; }
             .hero-image img { position: relative; height: 350px; }
@@ -205,7 +223,12 @@
         }
     </style>
 </head>
-<body>
+<body class="loading-active">
+
+    <!-- LAYER ANIMASI LOADING -->
+    <div id="loader">
+        <img src="logo2.png" alt="Loading Firdaus Tour & Travel..." class="loader-logo">
+    </div>
 
     <!-- Header / Navbar -->
     <header class="fade-in">
@@ -418,11 +441,22 @@
     </footer>
 
     <script>
+        // --- LOGIKA LOADING SCREEN ---
+        window.addEventListener('load', function() {
+            // Setelah halaman termuat, atur delay selama 2000 ms (2 detik)
+            setTimeout(function() {
+                const loader = document.getElementById('loader');
+                loader.classList.add('hidden'); // Sembunyikan dengan fade out
+                document.body.classList.remove('loading-active'); // Kembalikan fungsi scroll
+            }, 2000); 
+        });
+
+        // Alert Maintanance
         function alertMaintenance() {
             alert("Mohon maaf, sistem pendaftaran dan akun saat ini sedang dalam proses update & pemeliharaan.\n\nSilakan hubungi admin kami via WhatsApp untuk pemesanan.");
         }
 
-        // FUNGSI UNTUK MEMUNCULKAN MENU DI HP
+        // Hamburger Menu HP
         function toggleMenu() {
             const navMenu = document.getElementById("nav-menu");
             navMenu.classList.toggle("active");
