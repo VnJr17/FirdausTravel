@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Firdaus Tour & Travel</title>
     
-    <!-- Favicon Logo Browser (Mengganti ikon bola dunia) -->
+    <!-- Favicon Logo Browser -->
     <link rel="icon" type="image/png" href="logo.png">
     
-    <!-- Menggunakan Font Inter -->
+    <!-- Font Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -22,6 +22,7 @@
             --bg-color: #ffffff;
             --text-dark: #333;
             --white: #ffffff;
+            --border-color: #eaeaea;
         }
 
         * {
@@ -61,50 +62,14 @@
             padding: 20px 8%;
             background: transparent;
         }
-
-        .logo img {
-            height: 50px;
-            object-fit: contain;
-        }
-
-        nav ul {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-        }
-
-        nav ul li a {
-            color: var(--text-dark);
-            font-weight: 500;
-            font-size: 15px;
-        }
-
-        nav ul li a:hover {
-            color: var(--primary-color);
-        }
-
-        .auth-buttons {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .btn-daftar, .btn-masuk {
-            font-weight: 600;
-            font-size: 14px;
-            cursor: pointer;
-        }
-
-        .btn-daftar {
-            color: var(--text-dark);
-        }
-
-        .btn-masuk {
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 8px 24px;
-            border-radius: 20px;
-        }
+        .logo img { height: 50px; object-fit: contain; }
+        nav ul { display: flex; gap: 30px; list-style: none; }
+        nav ul li a { color: var(--text-dark); font-weight: 500; font-size: 15px; }
+        nav ul li a:hover { color: var(--primary-color); }
+        .auth-buttons { display: flex; align-items: center; gap: 20px; }
+        .btn-daftar, .btn-masuk { font-weight: 600; font-size: 14px; cursor: pointer; }
+        .btn-daftar { color: var(--text-dark); }
+        .btn-masuk { background-color: var(--primary-color); color: var(--white); padding: 8px 24px; border-radius: 20px; }
 
         /* --- HERO SECTION --- */
         .hero {
@@ -116,124 +81,28 @@
             min-height: 420px;
             overflow: hidden;
         }
-
-        .hero-text {
-            flex: 1.2;
-            padding: 60px 40px 60px 50px;
-            color: var(--white);
-            z-index: 2;
-        }
-
-        .hero-text h1 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 20px;
-        }
-
-        .hero-text p {
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            max-width: 85%;
-            line-height: 1.5;
-            font-weight: 400;
-        }
-
-        .btn-pesan {
-            background-color: var(--white);
-            color: var(--primary-color);
-            padding: 12px 30px;
-            border-radius: 25px;
-            font-weight: 700;
-            display: inline-block;
-        }
-
-        .hero-image {
-            flex: 1;
-            position: relative;
-        }
-
-        .hero-image img {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            height: 100%;
-            object-fit: contain;
-            z-index: 1;
-        }
+        .hero-text { flex: 1.2; padding: 60px 40px 60px 50px; color: var(--white); z-index: 2; }
+        .hero-text h1 { font-size: 2.8rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
+        .hero-text p { font-size: 1.1rem; margin-bottom: 30px; max-width: 85%; line-height: 1.5; font-weight: 400; }
+        .btn-pesan { background-color: var(--white); color: var(--primary-color); padding: 12px 30px; border-radius: 25px; font-weight: 700; display: inline-block; }
+        .hero-image { flex: 1; position: relative; }
+        .hero-image img { position: absolute; bottom: 0; right: 0; height: 100%; object-fit: contain; z-index: 1; }
 
         /* --- FITUR SECTION --- */
-        .features {
-            display: flex;
-            padding: 20px 8% 60px;
-            gap: 40px;
-        }
-
-        .features-title {
-            flex: 1;
-        }
-
-        .features-title h2 {
-            color: var(--primary-color);
-            font-size: 3.2rem;
-            font-weight: 800;
-            line-height: 1.1;
-        }
-
-        .features-list {
-            flex: 1.5;
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-        }
-
-        .feature-icon {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 12px;
-            border-radius: 50%;
-            min-width: 45px;
-            height: 45px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.2rem;
-        }
-
-        .feature-text h3 {
-            color: var(--primary-color);
-            font-size: 1.15rem;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .feature-text p {
-            font-size: 1rem;
-            line-height: 1.5;
-            color: #555;
-            font-weight: 500;
-        }
+        .features { display: flex; padding: 20px 8% 60px; gap: 40px; }
+        .features-title { flex: 1; }
+        .features-title h2 { color: var(--primary-color); font-size: 3.2rem; font-weight: 800; line-height: 1.1; }
+        .features-list { flex: 1.5; display: flex; flex-direction: column; gap: 30px; }
+        .feature-item { display: flex; align-items: flex-start; gap: 15px; }
+        .feature-icon { background-color: var(--primary-color); color: white; padding: 12px; border-radius: 50%; min-width: 45px; height: 45px; display: flex; justify-content: center; align-items: center; font-size: 1.2rem; }
+        .feature-text h3 { color: var(--primary-color); font-size: 1.15rem; font-weight: 700; margin-bottom: 5px; }
+        .feature-text p { font-size: 1rem; line-height: 1.5; color: #555; font-weight: 500; }
 
         /* --- PAKET PERJALANAN --- */
         .packages { padding: 40px 8% 60px; }
         .section-title { color: var(--primary-color); font-size: 2.5rem; font-weight: 800; margin-bottom: 30px; }
         .package-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-        .package-card {
-            background-color: var(--primary-color);
-            border-radius: 15px;
-            padding: 15px;
-            color: var(--white);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            transition: transform 0.3s;
-        }
+        .package-card { background-color: var(--primary-color); border-radius: 15px; padding: 15px; color: var(--white); display: flex; flex-direction: column; gap: 15px; transition: transform 0.3s; }
         .package-card:hover { transform: translateY(-10px); }
         .package-img { width: 100%; height: 160px; border-radius: 10px; object-fit: cover; }
         .package-card h3 { font-size: 1.1rem; font-weight: 700; }
@@ -243,21 +112,34 @@
         .cta-banner { text-align: center; padding: 60px 8%; }
         .cta-banner h2 { color: var(--primary-color); font-size: 2.2rem; font-weight: 800; margin-bottom: 15px; }
         .cta-banner p { font-size: 1.1rem; margin-bottom: 30px; color: var(--primary-color); }
-        .btn-admin {
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 15px 40px;
-            border-radius: 30px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            display: inline-block;
-        }
+        .btn-admin { background-color: var(--primary-color); color: var(--white); padding: 15px 40px; border-radius: 30px; font-size: 1.2rem; font-weight: 700; display: inline-block; }
 
-        /* --- FOOTER --- */
-        footer {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 30px 8%; border-top: 1px solid #ddd;
+        /* --- FAQ SECTION --- */
+        .faq-section { padding: 40px 8% 80px; }
+        .faq-container { display: flex; gap: 40px; align-items: flex-start; }
+        .faq-image { flex: 1; border-radius: 15px; overflow: hidden; }
+        .faq-image img { width: 100%; height: 100%; min-height: 400px; object-fit: cover; border-radius: 15px; }
+        .faq-content { flex: 1.5; }
+        .faq-title { color: var(--primary-color); font-size: 2.5rem; font-weight: 800; margin-bottom: 25px; }
+        
+        .accordion { border: 1px solid var(--border-color); border-bottom: none; border-radius: 8px; overflow: hidden; }
+        .accordion-item { border-bottom: 1px solid var(--border-color); background: var(--white); }
+        .accordion-header {
+            width: 100%; display: flex; align-items: center; gap: 15px; text-align: left;
+            padding: 18px 20px; background: none; border: none; cursor: pointer;
+            font-size: 1.05rem; font-weight: 600; color: var(--primary-color); transition: background 0.2s;
         }
+        .accordion-header:hover { background-color: #fafafa; }
+        .accordion-header i { font-size: 1.2rem; transition: transform 0.3s; }
+        
+        .accordion-body {
+            max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease;
+            background-color: #fafafa; color: #555; line-height: 1.6; font-size: 0.95rem;
+        }
+        .accordion-body.active { max-height: 500px; padding: 0 20px 20px 50px; }
+        
+        /* --- FOOTER --- */
+        footer { display: flex; justify-content: space-between; align-items: center; padding: 30px 8%; border-top: 1px solid #ddd; }
         .footer-logo img { height: 60px; }
         .footer-contact { text-align: center; color: var(--primary-color); font-weight: 600; }
         .footer-brand { text-align: right; color: var(--primary-color); font-weight: 800; font-size: 1.1rem; }
@@ -265,12 +147,13 @@
         @media (max-width: 992px) {
             .hero { flex-direction: column; min-height: auto; }
             .hero-image img { position: relative; height: 350px; }
-            .features { flex-direction: column; gap: 30px; }
+            .features, .faq-container { flex-direction: column; gap: 30px; }
             .package-grid { grid-template-columns: repeat(2, 1fr); }
             nav ul { display: none; }
         }
         @media (max-width: 600px) {
             .package-grid { grid-template-columns: 1fr; }
+            .faq-title { font-size: 2rem; }
         }
     </style>
 </head>
@@ -286,7 +169,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="destinasi.html">Destinasi Trip</a></li>
                 <li><a href="destinasi.html">Private Trip</a></li>
-                <li><a href="https://wa.me/628122230366?text=Halo%20Admin%20FirdausTravel,%20saya%20ingin%20bertanya..." target="_blank">Hubungi Kami</a></li>
+                <li><a href="https://wa.me/628122230366?text=Halo%20Admin%20FirdausTravel..." target="_blank">Hubungi Kami</a></li>
             </ul>
         </nav>
         <div class="auth-buttons">
@@ -300,7 +183,7 @@
         <div class="hero-text">
             <h1>Rental Mobil & Wisata Praktis Tanpa Ribet!</h1>
             <p>Solusi rental mobil include driver untuk segala kebutuhan trip, perjalanan bisnis dan wishlist wisata anda!</p>
-            <a href="https://wa.me/628122230366?text=Halo%20Admin,%20saya%20ingin%20pesan%20layanan%20FirdausTravel." target="_blank" class="btn-pesan">Pesan Sekarang!</a>
+            <a href="https://wa.me/628122230366?text=Halo%20Admin..." target="_blank" class="btn-pesan">Pesan Sekarang!</a>
         </div>
         <div class="hero-image">
             <img src="mobil-hero.png" alt="Armada dan Driver">
@@ -320,6 +203,7 @@
                     <p>Mau liburan ke Bandung, Lembang, Jogja, hingga Surabaya? Mau wisata gunung atau pantai, rutenya fleksibel sesuai keinginanmu.</p>
                 </div>
             </div>
+            <!-- Fitur lainnya dipersingkat untuk kejelasan, struktur tetap dipertahankan -->
             <div class="feature-item">
                 <div class="feature-icon"><i class="fa-solid fa-user-tie"></i></div>
                 <div class="feature-text">
@@ -355,6 +239,7 @@
                     <p>Antar-jemput bandara, stasiun, dinas kantor, keliling kota atau kirim barang secara instan.</p>
                 </div>
             </a>
+            <!-- 3 paket lainnya -->
             <a href="destinasi.html" style="text-decoration:none; color:inherit;">
                 <div class="package-card">
                     <img src="https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?auto=format&fit=crop&w=400&q=80" alt="Trip Wisata" class="package-img">
@@ -383,7 +268,95 @@
     <section class="cta-banner fade-in">
         <h2>Butuh Sewa Mobil + Driver<br>Nyaman untuk Hari Ini?</h2>
         <p>Dapatkan penawaran harga terbaik<br>dan nikmati perjalanan aman tanpa repot menyetir!</p>
-        <a href="https://wa.me/628122230366?text=Halo%20Admin,%20saya%20butuh%20sewa%20mobil%20hari%20ini." target="_blank" class="btn-admin">Hubungi Admin</a>
+        <a href="https://wa.me/628122230366?text=Halo%20Admin..." target="_blank" class="btn-admin">Hubungi Admin</a>
+    </section>
+
+    <!-- FAQ SECTION (BARU DITAMBAHKAN) -->
+    <section class="faq-section fade-in">
+        <div class="faq-container">
+            <div class="faq-image">
+                <!-- Ganti link gambar ini dengan gambar Anda sendiri -->
+                <img src="https://images.unsplash.com/photo-1555400038-63f5ba517a47?auto=format&fit=crop&w=600&q=80" alt="Gambar Referensi Tour">
+            </div>
+            
+            <div class="faq-content">
+                <h2 class="faq-title">Pertanyaan Yang Sering Diajukan</h2>
+                <div class="accordion">
+                    
+                    <!-- Item FAQ 1 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <i class="fa-solid fa-minus"></i> Apakah Jadwal Perjalanan Fixed?
+                        </button>
+                        <!-- Class active default terbuka untuk item pertama seperti di screenshot -->
+                        <div class="accordion-body active">
+                            Itinerary/ jadwal perjalanan dapat berubah sewaktu-waktu karena beberapa faktor seperti alam dan kejadian tak terduga di lapangan Kami berhak merubah jadwal secara mendadak demi kelancaran dan keamanan perjalanan wisata.
+                        </div>
+                    </div>
+
+                    <!-- Item FAQ 2 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <i class="fa-solid fa-plus"></i> Mekanisme Pembayaran
+                        </button>
+                        <div class="accordion-body">
+                            Pembayaran dapat dilakukan dengan melakukan Down Payment (DP) minimal 30% dari total biaya perjalanan. Pelunasan dilakukan H-1 atau pada hari H sebelum keberangkatan.
+                        </div>
+                    </div>
+
+                    <!-- Item FAQ 3 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <i class="fa-solid fa-plus"></i> Pembatalan Trip Wisata
+                        </button>
+                        <div class="accordion-body">
+                            Pembatalan sepihak dari peserta H-7 sebelum keberangkatan akan dikenakan pemotongan DP sebesar 50%. Pembatalan pada hari H maka DP akan hangus secara keseluruhan.
+                        </div>
+                    </div>
+
+                    <!-- Item FAQ 4 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <i class="fa-solid fa-plus"></i> Minimum Jumlah Peserta
+                        </button>
+                        <div class="accordion-body">
+                            Untuk layanan private trip / sewa mobil menyesuaikan dengan kapasitas maksimum kendaraan (misal: Avanza maks 6 orang, Hiace maks 14 orang). Tidak ada batas minimum mutlak.
+                        </div>
+                    </div>
+
+                    <!-- Item FAQ 5 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <i class="fa-solid fa-plus"></i> Harga Anak dan Balita
+                        </button>
+                        <div class="accordion-body">
+                            Anak usia di bawah 3 tahun (balita) biasanya bebas biaya (free of charge) jika dipangku dan tidak membutuhkan seat tersendiri. Usia 4 tahun ke atas dikenakan harga normal.
+                        </div>
+                    </div>
+
+                    <!-- Item FAQ 6 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <i class="fa-solid fa-plus"></i> Biaya Tambahan
+                        </button>
+                        <div class="accordion-body">
+                            Harga yang disepakati biasanya sudah All-in (Mobil, Driver, BBM). Biaya tambahan umumnya hanya berlaku untuk tol, parkir, retribusi wisata, dan tips driver (sukarela).
+                        </div>
+                    </div>
+
+                    <!-- Item FAQ 7 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <i class="fa-solid fa-plus"></i> Kecelakaan
+                        </button>
+                        <div class="accordion-body">
+                            Keamanan Anda adalah prioritas kami. Semua kendaraan rutin dicek, dan kami berupaya sebaik mungkin memastikan keselamatan. Namun, kami sangat menyarankan peserta memiliki asuransi perjalanan pribadi untuk proteksi tambahan.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Footer -->
@@ -398,6 +371,7 @@
             alert("Mohon maaf, sistem pendaftaran dan akun saat ini sedang dalam proses update & pemeliharaan.\n\nSilakan hubungi admin kami via WhatsApp untuk pemesanan.");
         }
 
+        // Animasi Fade In Scroll
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
@@ -406,6 +380,34 @@
             });
         });
         document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+
+        // Logika Accordion untuk FAQ
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', function() {
+                const body = this.nextElementSibling;
+                const icon = this.querySelector('i');
+                const isActive = body.classList.contains('active');
+
+                // Tutup semua body terlebih dahulu
+                document.querySelectorAll('.accordion-body').forEach(b => {
+                    b.classList.remove('active');
+                });
+                
+                // Kembalikan semua icon ke "plus"
+                document.querySelectorAll('.accordion-header i').forEach(i => {
+                    i.classList.remove('fa-minus');
+                    i.classList.add('fa-plus');
+                });
+
+                // Jika yang diklik sebelumnya tidak aktif, buka (jadikan aktif)
+                if (!isActive) {
+                    body.classList.add('active');
+                    icon.classList.remove('fa-plus');
+                    icon.classList.add('fa-minus');
+                }
+            });
+        });
     </script>
 </body>
 </html>
