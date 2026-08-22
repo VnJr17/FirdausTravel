@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private Trip - Firdaus Tour & Travel</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo.png">
+    
+    <!-- Font Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #a44200; 
+            --secondary-color: #d95e00;
+            --bg-color: #f9f9f9; /* Sedikit abu-abu untuk bedakan dari home */
+            --text-dark: #333;
+            --white: #ffffff;
+            --border-color: #eaeaea;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; transition: 0.3s; }
+
+        /* --- ANIMASI --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in.show { opacity: 1; transform: translateY(0); }
+
+        /* --- NAVBAR (Tetap Konsisten) --- */
+        header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 8%; background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .logo img { height: 50px; object-fit: contain; }
+        nav ul { display: flex; gap: 30px; list-style: none; }
+        nav ul li a { color: var(--text-dark); font-weight: 500; font-size: 15px; }
+        nav ul li a:hover, nav ul li a.active { color: var(--primary-color); font-weight: 700; }
+        .auth-buttons { display: flex; align-items: center; gap: 20px; }
+        .btn-daftar { font-weight: 600; font-size: 14px; cursor: pointer; color: var(--text-dark); }
+        .btn-masuk { background-color: var(--primary-color); color: var(--white); padding: 8px 24px; border-radius: 20px; font-weight: 600; font-size: 14px; }
+
+        /* --- HERO PRIVATE TRIP --- */
+        .hero-private {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 80px 8% 100px;
+            text-align: center;
+            color: var(--white);
+        }
+        .hero-private h1 { font-size: 3rem; font-weight: 800; margin-bottom: 15px; }
+        .hero-private p { font-size: 1.1rem; font-weight: 400; max-width: 600px; margin: 0 auto; line-height: 1.6; }
+
+        /* --- FORM PLANNER SECTION --- */
+        .planner-section {
+            padding: 0 8% 80px;
+            margin-top: -50px;
+            display: flex;
+            justify-content: center;
+        }
+        .form-container {
+            background: var(--white);
+            width: 100%;
+            max-width: 900px;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .form-title {
+            text-align: center; color: var(--primary-color);
+            font-size: 1.8rem; font-weight: 700; margin-bottom: 30px;
+        }
+        
+        .form-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+        }
+        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        .form-group.full-width { grid-column: 1 / -1; }
+        
+        label { font-size: 0.95rem; font-weight: 600; color: #555; }
+        input, select, textarea {
+            width: 100%; padding: 14px 15px;
+            border: 1px solid #ccc; border-radius: 10px;
+            font-size: 1rem; color: #333; outline: none;
+            transition: border 0.3s;
+        }
+        input:focus, select:focus, textarea:focus { border-color: var(--primary-color); }
+        textarea { resize: vertical; min-height: 100px; }
+
+        .btn-submit-trip {
+            background-color: #25D366; /* Warna WhatsApp */
+            color: white; padding: 16px; border: none; border-radius: 10px;
+            font-size: 1.1rem; font-weight: 700; cursor: pointer;
+            width: 100%; margin-top: 20px; transition: background 0.3s, transform 0.2s;
+            display: flex; justify-content: center; align-items: center; gap: 10px;
+        }
+        .btn-submit-trip:hover { background-color: #1ebe57; transform: translateY(-3px); }
+
+        /* --- BENEFIT SECTION --- */
+        .benefits {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 30px; padding: 20px 8% 80px; text-align: center;
+        }
+        .benefit-card { background: var(--white); padding: 30px 20px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .benefit-card i { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 15px; }
+        .benefit-card h3 { font-size: 1.2rem; color: var(--text-dark); margin-bottom: 10px; }
+        .benefit-card p { font-size: 0.95rem; color: #666; line-height: 1.5; }
+
+        /* --- FOOTER --- */
+        footer {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 30px 8%; border-top: 1px solid #ddd; background: var(--white);
+        }
+        .footer-logo img { height: 60px; }
+        .footer-contact { text-align: center; color: var(--primary-color); font-weight: 600; }
+        .footer-brand { text-align: right; color: var(--primary-color); font-weight: 800; font-size: 1.1rem; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero-private h1 { font-size: 2.2rem; }
+            .form-grid { grid-template-columns: 1fr; }
+            .benefits { grid-template-columns: 1fr; }
+            nav ul { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header>
+        <a href="index.html" class="logo">
+            <img src="logo.png" alt="Firdaus Tour & Travel">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="destinasi.html">Destinasi Trip</a></li>
+                <li><a href="private-trip.html" class="active">Private Trip</a></li>
+                <li><a href="https://wa.me/628122230366?text=Halo%20Admin%20FirdausTravel..." target="_blank">Hubungi Kami</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <a href="#" class="btn-daftar" onclick="alertMaintenance()">Daftar</a>
+            <a href="#" class="btn-masuk" onclick="alertMaintenance()">Masuk</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-private fade-in">
+        <h1>Rancang Perjalanan Anda Sendiri</h1>
+        <p>Bebas tentukan destinasi, jadwal, hingga armada pilihan Anda. Isi form di bawah, dan admin kami akan menyiapkan harga terbaik khusus untuk Anda.</p>
+    </section>
+
+    <!-- Form Section -->
+    <section class="planner-section fade-in">
+        <div class="form-container">
+            <h2 class="form-title">Formulir Request Custom Trip</h2>
+            <form id="formTrip">
+                <div class="form-grid">
+                    
+                    <div class="form-group">
+                        <label for="nama">Nama Pemesan</label>
+                        <input type="text" id="nama" placeholder="Masukkan nama lengkap Anda" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="kota">Kota Penjemputan</label>
+                        <input type="text" id="kota" placeholder="Contoh: Bandung, Stasiun Jakarta, dll" required>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="destinasi">Daftar Destinasi / Tujuan</label>
+                        <textarea id="destinasi" placeholder="Contoh: Kawah Putih, Glamping Lakesite, lalu wisata kuliner malam..." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tanggal">Tanggal Keberangkatan</label>
+                        <input type="date" id="tanggal" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="durasi">Durasi Perjalanan</label>
+                        <select id="durasi">
+                            <option value="1 Hari (City Tour)">1 Hari (City Tour)</option>
+                            <option value="2 Hari 1 Malam">2 Hari 1 Malam</option>
+                            <option value="3 Hari 2 Malam">3 Hari 2 Malam</option>
+                            <option value="Lebih dari 3 Hari">Lebih dari 3 Hari (Custom)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="peserta">Jumlah Peserta</label>
+                        <input type="number" id="peserta" placeholder="Berapa orang yang ikut?" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="armada">Preferensi Armada</label>
+                        <select id="armada">
+                            <option value="Terserah Rekomendasi Admin">Terserah Rekomendasi Admin</option>
+                            <option value="Avanza / Xenia (Maks 6 Orang)">Avanza / Xenia (Maks 6 Orang)</option>
+                            <option value="Innova Reborn (Maks 7 Orang)">Innova Reborn (Maks 7 Orang)</option>
+                            <option value="Hiace / Elf (Maks 14-19 Orang)">Hiace / Elf (Maks 14-19 Orang)</option>
+                            <option value="Bus Medium / Big Bus">Bus Medium / Big Bus</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="catatan">Catatan Tambahan (Opsional)</label>
+                        <textarea id="catatan" placeholder="Ada request khusus? (Misal: Butuh fotografer, request makanan khusus, dll)"></textarea>
+                    </div>
+                </div>
+
+                <!-- Tombol Submit menuju WA -->
+                <button type="button" class="btn-submit-trip" onclick="kirimWhatsApp()">
+                    <i class="fa-brands fa-whatsapp"></i> Kirim Request via WhatsApp
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Keunggulan Private Trip -->
+    <section class="benefits fade-in">
+        <div class="benefit-card">
+            <i class="fa-solid fa-route"></i>
+            <h3>Sangat Fleksibel</h3>
+            <p>Tidak perlu terburu-buru. Anda bisa menikmati setiap destinasi sesuai dengan ritme dan keinginan grup Anda.</p>
+        </div>
+        <div class="benefit-card">
+            <i class="fa-solid fa-user-shield"></i>
+            <h3>Lebih Intim & Privat</h3>
+            <p>Perjalanan hanya diisi oleh keluarga atau teman Anda sendiri, tanpa dicampur dengan rombongan peserta lain.</p>
+        </div>
+        <div class="benefit-card">
+            <i class="fa-solid fa-wallet"></i>
+            <h3>Budget Bisa Disesuaikan</h3>
+            <p>Beri tahu kami budget Anda, dan tim kami akan merancang rute serta fasilitas yang paling maksimal untuk Anda.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="fade-in">
+        <div class="footer-logo"><img src="logo.png" alt="Firdaus Travel"></div>
+        <div class="footer-contact"><p>Contact Us:</p><p>📞 08122230366</p></div>
+        <div class="footer-brand"><p>FIRDAUS TOUR<br>AND TRAVEL</p></div>
+    </footer>
+
+    <script>
+        // Alert untuk Tombol Daftar/Masuk
+        function alertMaintenance() {
+            alert("Mohon maaf, sistem pendaftaran saat ini sedang dalam proses update.\n\nSilakan hubungi admin kami via WhatsApp.");
+        }
+
+        // Animasi Scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        });
+        document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+
+        // Fungsi untuk mengumpulkan form dan mengirim ke WhatsApp
+        function kirimWhatsApp() {
+            const nama = document.getElementById('nama').value;
+            const kota = document.getElementById('kota').value;
+            const destinasi = document.getElementById('destinasi').value;
+            const tanggal = document.getElementById('tanggal').value;
+            const durasi = document.getElementById('durasi').value;
+            const peserta = document.getElementById('peserta').value;
+            const armada = document.getElementById('armada').value;
+            const catatan = document.getElementById('catatan').value;
+
+            // Validasi Sederhana
+            if(!nama || !kota || !destinasi || !tanggal || !peserta) {
+                alert("Mohon lengkapi bagian Nama, Kota Jemput, Destinasi, Tanggal, dan Jumlah Peserta terlebih dahulu.");
+                return;
+            }
+
+            // Format Pesan WhatsApp
+            const pesan = `*Halo Admin Firdaus Travel, saya ingin Request Private Trip!*%0A%0A` +
+                          `*Nama:* ${nama}%0A` +
+                          `*Kota Penjemputan:* ${kota}%0A` +
+                          `*Destinasi:* ${destinasi}%0A` +
+                          `*Tanggal:* ${tanggal}%0A` +
+                          `*Durasi:* ${durasi}%0A` +
+                          `*Jumlah Peserta:* ${peserta} Orang%0A` +
+                          `*Pilihan Armada:* ${armada}%0A` +
+                          `*Catatan Tambahan:* ${catatan ? catatan : '-' }%0A%0A` +
+                          `Tolong bantu hitungkan estimasi biayanya ya min. Terima kasih!`;
+
+            // Buka Link WhatsApp (Ganti nomor jika perlu)
+            const waLink = `https://wa.me/628122230366?text=${pesan}`;
+            window.open(waLink, '_blank');
+        }
+    </script>
+</body>
+</html>
