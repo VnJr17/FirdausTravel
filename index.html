@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Firdaus Tour & Travel</title>
     
+    <!-- Favicon Logo Browser (Mengganti ikon bola dunia) -->
+    <link rel="icon" type="image/png" href="logo.png">
+    
     <!-- Menggunakan Font Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -105,13 +108,13 @@
 
         /* --- HERO SECTION --- */
         .hero {
-            background-color: #bd4a00; /* Warna disesuaikan agar pas dengan gambar */
+            background-color: #bd4a00;
             margin: 10px 8% 60px;
             border-radius: 20px;
             display: flex;
             position: relative;
             min-height: 420px;
-            overflow: hidden; /* MEMASTIKAN GAMBAR TIDAK KELUAR BOX */
+            overflow: hidden;
         }
 
         .hero-text {
@@ -154,7 +157,7 @@
             position: absolute;
             bottom: 0;
             right: 0;
-            height: 100%; /* Badan pas di dalam box */
+            height: 100%;
             object-fit: contain;
             z-index: 1;
         }
@@ -287,7 +290,6 @@
             </ul>
         </nav>
         <div class="auth-buttons">
-            <!-- Alert Popup untuk Login/Daftar -->
             <a href="#" class="btn-daftar" onclick="alertMaintenance()">Daftar</a>
             <a href="#" class="btn-masuk" onclick="alertMaintenance()">Masuk</a>
         </div>
@@ -305,7 +307,7 @@
         </div>
     </section>
 
-    <!-- Kenapa Harus Pilih Kami (Dengan Ikon) -->
+    <!-- Kenapa Harus Pilih Kami -->
     <section class="features fade-in">
         <div class="features-title">
             <h2>Kenapa harus pilih Firdaus Tour & Travel?</h2>
@@ -346,28 +348,34 @@
     <section class="packages fade-in">
         <h2 class="section-title">Pilihan Rute &<br>Paket Perjalanan</h2>
         <div class="package-grid">
-            <div class="package-card">
-                <img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?auto=format&fit=crop&w=400&q=80" alt="City Tour" class="package-img">
-                <h3>Paket City Tour / Dropping</h3>
-                <p>Antar-jemput bandara, stasiun, dinas kantor, keliling kota atau kirim barang secara instan.</p>
-            </div>
-            <div class="package-card">
-                <img src="https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?auto=format&fit=crop&w=400&q=80" alt="Trip Wisata" class="package-img">
-                <h3>Paket Trip & Wisata</h3>
-                <p>Liburan seru dan santai ke berbagai spot wisata populer di Bandung, Bogor, Garut dan Wisata hidden gems yang ada di Jawa Barat.</p>
-            </div>
-            <a href="destinasi.html" style="text-decoration: none;">
+            <a href="destinasi.html" style="text-decoration:none; color:inherit;">
+                <div class="package-card">
+                    <img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?auto=format&fit=crop&w=400&q=80" alt="City Tour" class="package-img">
+                    <h3>Paket City Tour / Dropping</h3>
+                    <p>Antar-jemput bandara, stasiun, dinas kantor, keliling kota atau kirim barang secara instan.</p>
+                </div>
+            </a>
+            <a href="destinasi.html" style="text-decoration:none; color:inherit;">
+                <div class="package-card">
+                    <img src="https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?auto=format&fit=crop&w=400&q=80" alt="Trip Wisata" class="package-img">
+                    <h3>Paket Trip & Wisata</h3>
+                    <p>Liburan seru dan santai ke berbagai spot wisata populer di Garut, Bandung, dan Jawa Barat.</p>
+                </div>
+            </a>
+            <a href="destinasi.html" style="text-decoration:none; color:inherit;">
                 <div class="package-card">
                     <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=400&q=80" alt="Trip Garut" class="package-img">
-                    <h3>Special Trip Garut (Klik)</h3>
+                    <h3>Special Trip Garut</h3>
                     <p>Nikmati pesona alam pegunungan dan kuliner legendaris khas Garut. Klik untuk info selengkapnya.</p>
                 </div>
             </a>
-            <div class="package-card">
-                <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=400&q=80" alt="Custom Rute" class="package-img">
-                <h3>Custom Rute</h3>
-                <p>Bebas tentukan titik jemput, tujuan singgah, dan jadwal perjalanan sendiri sesuai kebutuhan acaramu.</p>
-            </div>
+            <a href="destinasi.html" style="text-decoration:none; color:inherit;">
+                <div class="package-card">
+                    <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=400&q=80" alt="Custom Rute" class="package-img">
+                    <h3>Custom Rute</h3>
+                    <p>Bebas tentukan titik jemput, tujuan singgah, dan jadwal perjalanan sendiri sesuai kebutuhan acaramu.</p>
+                </div>
+            </a>
         </div>
     </section>
 
@@ -385,14 +393,11 @@
         <div class="footer-brand"><p>FIRDAUS TOUR<br>AND TRAVEL</p></div>
     </footer>
 
-    <!-- SCRIPT UNTUK ANIMASI SCROLL & ALERT -->
     <script>
-        // Alert untuk Tombol Daftar/Masuk
         function alertMaintenance() {
-            alert("Mohon maaf, sistem pendaftaran dan akun saat ini sedang dalam proses update & pemeliharaan untuk meningkatkan layanan kami.\n\nSilakan klik tombol 'Hubungi Kami' atau 'Pesan Sekarang' untuk terhubung langsung dengan admin kami via WhatsApp.");
+            alert("Mohon maaf, sistem pendaftaran dan akun saat ini sedang dalam proses update & pemeliharaan.\n\nSilakan hubungi admin kami via WhatsApp untuk pemesanan.");
         }
 
-        // Animasi Scroll (Fade In)
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
@@ -400,8 +405,7 @@
                 }
             });
         });
-        const hiddenElements = document.querySelectorAll('.fade-in');
-        hiddenElements.forEach((el) => observer.observe(el));
+        document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
     </script>
 </body>
 </html>
