@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Pantai Selatan - Firdaus Tour</title>
+    
+    <link rel="icon" type="image/png" href="logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-red: #d9381e;
+            --primary-dark: #a44200;
+            --bg-light: #f8f9fa;
+            --text-main: #333;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--bg-light); color: var(--text-main); }
+        a { text-decoration: none; }
+
+        /* Navbar & Tombol Back */
+        header { padding: 15px 8%; background: var(--white); border-bottom: 1px solid #eaeaea; }
+        .logo img { height: 45px; }
+        .btn-back {
+            display: inline-flex; align-items: center; gap: 8px;
+            color: var(--text-main); font-weight: 600; padding: 15px 8%;
+            font-size: 15px; transition: 0.3s;
+        }
+        .btn-back:hover { color: var(--primary-dark); }
+
+        /* Layout Detail */
+        .detail-container {
+            max-width: 900px; margin: 0 auto 60px;
+            background: var(--white); border-radius: 12px;
+            overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        
+        .detail-hero { width: 100%; height: 400px; object-fit: cover; }
+        .detail-content { padding: 40px; }
+        .detail-content h1 { font-size: 2.2rem; margin-bottom: 15px; color: #111; line-height: 1.2; }
+        .trip-meta { display: flex; gap: 20px; color: #666; font-size: 14px; margin-bottom: 30px; font-weight: 500; }
+        .trip-meta i { color: var(--primary-dark); }
+        
+        .section-title { font-size: 1.2rem; font-weight: 700; margin: 30px 0 15px; color: var(--primary-dark); border-bottom: 2px solid #eee; padding-bottom: 8px; }
+        .detail-text { font-size: 15px; line-height: 1.6; color: #444; margin-bottom: 20px; }
+        
+        .itinerary-list { list-style: none; margin-bottom: 20px; }
+        .itinerary-list li { position: relative; padding-left: 30px; margin-bottom: 15px; font-size: 14px; color: #444; line-height: 1.5; }
+        .itinerary-list li::before {
+            content: "\f111"; font-family: "FontAwesome"; font-weight: 900; font-size: 10px;
+            color: var(--primary-dark); position: absolute; left: 0; top: 4px;
+        }
+
+        .fasilitas-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 30px; }
+        .fasilitas-item { display: flex; align-items: center; gap: 10px; font-size: 14px; color: #444; }
+        .fasilitas-item i { color: #137333; }
+
+        /* Booking Box */
+        .booking-box {
+            background: #fff4ed; border: 1px solid #ffd4b8; padding: 25px;
+            border-radius: 12px; text-align: center; margin-top: 40px;
+        }
+        .booking-box h3 { font-size: 1.2rem; margin-bottom: 10px; }
+        .booking-box p { font-size: 14px; color: #666; margin-bottom: 20px; }
+        .btn-wa-booking {
+            display: inline-block; background: #25D366; color: white;
+            padding: 12px 30px; border-radius: 30px; font-weight: 700; font-size: 16px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); transition: 0.3s;
+        }
+        .btn-wa-booking:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4); }
+
+        @media (max-width: 768px) {
+            .detail-hero { height: 250px; }
+            .detail-content { padding: 25px; }
+            .fasilitas-grid { grid-template-columns: 1fr; }
+            .trip-meta { flex-direction: column; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo"><img src="logo.png" alt="Logo"></a>
+    </header>
+
+    <a href="destinasi.html" class="btn-back">
+        <i class="fa-solid fa-arrow-left"></i> Kembali ke Katalog Destinasi
+    </a>
+
+    <div class="detail-container">
+        <!-- Banner Foto -->
+        <img src="https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?auto=format&fit=crop&w=1000&q=80" alt="Pantai Selatan Garut" class="detail-hero">
+        
+        <div class="detail-content">
+            <h1>1 Day Trip: Explore Pantai Selatan Garut</h1>
+            <div class="trip-meta">
+                <span><i class="fa-solid fa-clock"></i> 1 Hari Penuh</span>
+                <span><i class="fa-solid fa-location-dot"></i> Lintas Selatan, Garut</span>
+                <span><i class="fa-solid fa-tag"></i> Mulai Rp 250.000/pax</span>
+            </div>
+
+            <h3 class="section-title">Tentang Destinasi Ini</h3>
+            <p class="detail-text">
+                Nikmati pesona eksotis gugusan pantai laut selatan Kabupaten Garut dalam satu hari penuh. Paket ini sangat cocok bagi Anda pencinta *vitamin sea*, di mana kita akan mengexplore garis pesisir dimulai dari megahnya pesisir <b>Pantai Sayang Heulang</b>, kawasan padang rumput <b>Bukit Teletubies</b>, hingga menikmati tenangnya suasana <b>Pantai Santolo</b>.
+            </p>
+            <p class="detail-text">
+                Perjalanan ini juga memadukan wisata santai dengan wisata kuliner khas pesisir. Di siang hari Anda akan menikmati nikmatnya hidangan *Seafood* segar yang ditangkap langsung oleh nelayan setempat. Pada akhir trip, kita juga akan menyambangi <b>Puncak Guha</b> dan <b>Pantai Rancabuaya</b>.
+            </p>
+
+            <h3 class="section-title">Rencana Perjalanan (Itinerary)</h3>
+            <ul class="itinerary-list">
+                <li><b>05.30 - 07.00:</b> Penjemputan di Garut Kota dan perjalanan menuju Pantai Sayang Heulang.</li>
+                <li><b>07.00 - 09.00:</b> Explore dan berfoto di Pantai Sayang Heulang.</li>
+                <li><b>09.00 - 10.30:</b> Mengunjungi Bukit Teletubies dengan lanskap perbukitan hijau pinggir laut.</li>
+                <li><b>10.30 - 12.30:</b> Tiba di Pantai Santolo, bermain pasir dan menikmati kawasan pesisir.</li>
+                <li><b>12.30 - 14.00:</b> Istirahat dan menyantap makan siang *Seafood* khas Kawasan Santolo.</li>
+                <li><b>14.00 - 16.00:</b> Perjalanan ke Pantai Puncak Guha, melihat indahnya tebing berbatasan langsung dengan samudra.</li>
+                <li><b>16.00 - 17.30:</b> Mengunjungi Pantai Rancabuaya sembari menikmati suasana sore.</li>
+                <li><b>17.30 - 20.00:</b> Perjalanan pulang kembali ke Garut Kota (Opsional mampir Kolam Air Panas Tirta Angsana jika waktu memungkinkan). Drop off selesai.</li>
+            </ul>
+
+            <h3 class="section-title">Fasilitas yang Didapatkan</h3>
+            <div class="fasilitas-grid">
+                <div class="fasilitas-item"><i class="fa-solid fa-circle-check"></i> Transportasi Mobil Full AC</div>
+                <div class="fasilitas-item"><i class="fa-solid fa-circle-check"></i> Driver sekaligus Tour Guide</div>
+                <div class="fasilitas-item"><i class="fa-solid fa-circle-check"></i> Tiket Masuk Seluruh Pantai (Sesuai Itinerary)</div>
+                <div class="fasilitas-item"><i class="fa-solid fa-circle-check"></i> BBM dan Biaya Parkir</div>
+                <div class="fasilitas-item"><i class="fa-solid fa-circle-check"></i> Air Mineral 1 Botol/orang</div>
+                <div class="fasilitas-item"><i class="fa-solid fa-circle-check"></i> Antar Jemput Garut Kota</div>
+            </div>
+            
+            <p class="detail-text" style="font-size: 13px; color: #c22915;">
+                <i>*Tidak termasuk: Pengeluaran pribadi (oleh-oleh), biaya makan Seafood, dan tips driver.</i>
+            </p>
+
+            <div class="booking-box">
+                <h3>Tertarik dengan Paket Ini?</h3>
+                <p>Amankan jadwal keberangkatanmu sekarang. Konsultasi gratis dengan admin kami.</p>
+                <a href="https://wa.me/628122230366?text=Halo%20Admin%20FirdausTravel,%20saya%20ingin%20tanya/booking%20paket%20*Explore%20Pantai%20Selatan*.%20Bisa%20minta%20info%20selengkapnya?" target="_blank" class="btn-wa-booking">
+                    <i class="fa-brands fa-whatsapp"></i> Chat & Booking via WhatsApp
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
