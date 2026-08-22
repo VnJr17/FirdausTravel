@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Trip Papandayan - Firdaus Tour</title>
+    
+    <link rel="icon" type="image/png" href="logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-red: #d9381e;
+            --primary-dark: #a44200;
+            --bg-light: #f8f9fa;
+            --text-main: #333;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--bg-light); color: var(--text-main); }
+        a { text-decoration: none; }
+
+        /* Navbar Sederhana */
+        header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 8%; background: var(--white); border-bottom: 1px solid #eaeaea;
+        }
+        .logo img { height: 45px; }
+
+        /* Tombol Back */
+        .btn-back {
+            display: inline-flex; align-items: center; gap: 8px;
+            color: var(--text-main); font-weight: 600; padding: 15px 8%;
+            font-size: 15px; transition: 0.3s;
+        }
+        .btn-back:hover { color: var(--primary-dark); }
+
+        /* Layout Detail */
+        .detail-container {
+            max-width: 900px; margin: 0 auto 60px;
+            background: var(--white); border-radius: 12px;
+            overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        
+        .detail-hero { width: 100%; height: 400px; object-fit: cover; }
+        
+        .detail-content { padding: 40px; }
+        .detail-content h1 { font-size: 2.2rem; margin-bottom: 15px; color: #111; }
+        .trip-meta { display: flex; gap: 20px; color: #666; font-size: 14px; margin-bottom: 30px; font-weight: 500; }
+        .trip-meta i { color: var(--primary-dark); }
+        
+        /* Section Content */
+        .section-title { font-size: 1.2rem; font-weight: 700; margin: 30px 0 15px; color: var(--primary-dark); border-bottom: 2px solid #eee; padding-bottom: 8px; }
+        .detail-text { font-size: 15px; line-height: 1.6; color: #444; margin-bottom: 20px; }
+        
+        /* Itinerary List */
+        .itinerary-list { list-style: none; margin-bottom: 20px; }
+        .itinerary-list li {
+            position: relative; padding-left: 30px; margin-bottom: 15px; font-size: 14px; color: #444; line-height: 1.5;
+        }
+        .itinerary-list li::before {
+            content: "\f111"; font-family: "FontAwesome"; font-weight: 900; font-size: 10px;
+            color: var(--primary-dark); position: absolute; left: 0; top: 4px;
+        }
+
+        /* Fasilitas Grid */
+        .fasilitas-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 30px; }
+        .fasilitas-item { display: flex; align-items: center; gap: 10px; font-size: 14px; color: #444; }
+        .fasilitas-item i { color: #137333; }
+
+        /* Floating Booking Box */
+        .booking-box {
+            background: #fff4ed; border: 1px solid #ffd4b8; padding: 25px;
+            border-radius: 12px; text-align: center; margin-top: 40px;
+        }
+        .booking-box h3 { font-size: 1.2rem; margin-bottom: 10px; }
+        .booking-box p { font-size: 14px; color: #666; margin-bottom: 20px; }
+        .btn-wa-booking {
+            display: inline-block; background: #25D366; color: white;
+            padding: 12px 30px; border-radius: 30px; font-weight: 700; font-size: 16px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); transition: 0.3s;
+        }
+        .btn-wa-booking:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4); }
+
+        @media (max-width: 768px) {
+            .detail-hero { height: 250px; }
+            .detail-content { padding: 25px; }
+            .fasilitas-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <a href="index.html" class="logo"><img src="logo.png" alt="Logo"></a>
+    </header>
+
+    <!-- Tombol Kembali -->
+    <a href="destinasi.html" class="btn-back">
+        <i class="fa-solid fa-arrow-left"></i> Kembali ke Katalog Destinasi
+    </a>
+
+    <!-- Main Detail -->
+    <div class="detail-container">
+        <!-- Gambar Utama -->
+        <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=1000&q=80" alt="Kawah Papandayan" class="detail-hero">
+        
+        <div class="detail-content">
+            <h1>One Day Trip Kawah Papandayan</h1>
+            <div class="trip-meta">
+                <span><i class="fa-solid fa-clock"></i> 1 Hari Penuh</span>
+                <span><i class="fa-solid fa-location-dot"></i> Gunung Papandayan, Garut</span>
+                <span><i class="fa-solid fa-tag"></i> Mulai Rp 225.000/pax</span>
+            </div>
+
+            <!-- Deskripsi -->
+            <h3 class="section-title">Tentang Destinasi Ini</h3>
+            <p class="detail-text">
+                Gunung Papandayan merupakan destinasi favorit di Garut yang sangat ramah untuk semua kalangan, termasuk pemula dan keluarga. Anda akan disuguhkan pemandangan menakjubkan dari <b>Kawah Mas</b> yang masih aktif, hingga lanskap eksotis <b>Hutan Mati</b> yang ikonik dengan pepohonan kering berlatar kabut tipis.
+            </p>
+            <p class="detail-text">
+                Tidak perlu mendaki mendaki terlalu berat, karena titik parkir sudah sangat dekat dengan kawah utama. Trip ini dirancang agar Anda bisa menikmati alam dengan santai, mengabadikan foto yang <i>instagramable</i>, dan menghirup udara segar pegunungan.
+            </p>
+
+            <!-- Itinerary -->
+            <h3 class="section-title">Rencana Perjalanan (Itinerary)</h3>
+            <ul class="itinerary-list">
+                <li><b>06.30 - 07.00:</b> Penjemputan peserta di meeting point (Stasiun/Hotel area Garut Kota).</li>
+                <li><b>07.00 - 08.00:</b> Perjalanan menuju Camp David Gunung Papandayan menggunakan mobil.</li>
+                <li><b>08.00 - 11.30:</b> Trekking santai dan eksplorasi Kawah Mas, Kawah Baru, dan berfoto di Hutan Mati.</li>
+                <li><b>11.30 - 13.00:</b> Istirahat, makan siang, dan bersantai menikmati suasana pegunungan.</li>
+                <li><b>13.00 - 14.30:</b> Perjalanan turun kembali ke area parkir.</li>
+                <li><b>14.30 - 16.00:</b> Perjalanan pulang dan mampir ke sentra oleh-oleh khas Garut (Chocodot/Dodol).</li>
+                <li><b>16.00:</b> Drop off peserta. Trip selesai dengan kenangan indah!</li>
+            </ul>
+
+            <!-- Fasilitas -->
+            <h3 class="section-title">Fasilitas yang Didapatkan</h3>
+            <div class="fasilitas-grid">
+                <div class="fasilitas-item"><i class="fa-solid fa-circle-check"></i> Transportasi Mobil Full AC</div>
+                <div class="fasilitas-item"><i class="fa-solid fa-circle-check"></i> Driver profesional & ramah (sebagai guide)</div>
+                <div class="fasilitas-item"><i class="fa-solid fa-circle-check"></i> Tiket Masuk Gerbang Utama Papandayan</div>
+                <div class="fasilitas-item"><i class="fa-solid fa-circle-check"></i> Tiket Kawah Papandayan</div>
+                <div class="fasilitas-item"><i class="fa-solid fa-circle-check"></i> BBM dan Biaya Parkir</div>
+                <div class="fasilitas-item"><i class="fa-solid fa-circle-check"></i> Air Mineral 1 Botol/orang</div>
+            </div>
+            
+            <p class="detail-text" style="font-size: 13px; color: #c22915;">
+                <i>*Tidak termasuk: Pengeluaran pribadi, makan siang, dan tips driver (sukarela).</i>
+            </p>
+
+            <!-- CTA Pemesanan WA -->
+            <div class="booking-box">
+                <h3>Tertarik dengan Paket Ini?</h3>
+                <p>Amankan jadwal keberangkatanmu sekarang. Konsultasi gratis dengan admin kami.</p>
+                <a href="https://wa.me/628122230366?text=Halo%20Admin%20FirdausTravel,%20saya%20ingin%20tanya/booking%20paket%20*One%20Day%20Trip%20Kawah%20Papandayan*.%20Bisa%20minta%20info%20ketersediaan%20jadwal?" target="_blank" class="btn-wa-booking">
+                    <i class="fa-brands fa-whatsapp"></i> Chat & Booking via WhatsApp
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
