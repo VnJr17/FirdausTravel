@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Destinasi & Private Trip - Firdaus Tour</title>
+    <title>Katalog Trip Garut - Firdaus Tour</title>
     
     <!-- Favicon Logo Browser -->
     <link rel="icon" type="image/png" href="logo.png">
@@ -24,18 +24,15 @@
         body { background-color: var(--bg-light); color: var(--text-main); }
         a { text-decoration: none; }
 
-        /* Navbar ala Penjelajah Trip */
+        /* Navbar */
         header {
             display: flex; justify-content: space-between; align-items: center;
             padding: 15px 8%; background: var(--white); border-bottom: 1px solid #eaeaea;
         }
         .logo img { height: 45px; }
         nav ul { display: flex; gap: 25px; list-style: none; }
-        nav ul li a { color: var(--text-main); font-weight: 500; font-size: 14px; }
+        nav ul li a { color: var(--text-main); font-weight: 600; font-size: 15px; }
         nav ul li a:hover { color: var(--primary-red); }
-        .auth-nav { display: flex; gap: 15px; align-items: center; }
-        .btn-reg { color: var(--text-main); font-weight: 600; font-size: 14px; }
-        .btn-log { background: var(--primary-red); color: white; padding: 8px 22px; border-radius: 20px; font-weight: 600; font-size: 14px; }
 
         /* Breadcrumb */
         .breadcrumb { padding: 20px 8% 10px; font-size: 14px; color: #666; }
@@ -60,17 +57,12 @@
         .filter-group input, .filter-group select {
             width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-size: 13px; outline: none;
         }
-        .badge-filter {
-            display: inline-block; padding: 6px 14px; border: 1px solid #ddd; border-radius: 20px;
-            font-size: 12px; margin-right: 5px; margin-bottom: 8px; cursor: pointer; background: #fff; color: #444;
-        }
-        .badge-filter.active { background: var(--primary-red); color: white; border-color: var(--primary-red); }
         .btn-terapkan {
             width: 100%; background: var(--primary-red); color: white; border: none;
             padding: 12px; border-radius: 8px; font-weight: 700; cursor: pointer; text-align: center;
         }
 
-        /* Content Grid (Destinasi Garut) */
+        /* Content Grid */
         .trip-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -84,28 +76,24 @@
         .trip-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
         .trip-thumb { position: relative; width: 100%; height: 180px; }
         .trip-thumb img { width: 100%; height: 100%; object-fit: cover; }
-        .status-badge {
-            position: absolute; top: 10px; left: 10px; background: #e6f4ea; color: #137333;
-            padding: 3px 10px; font-size: 11px; font-weight: 700; border-radius: 4px;
-        }
         .trip-body { padding: 15px; display: flex; flex-direction: column; flex: 1; }
         .trip-body h4 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: #222; }
-        .rating { font-size: 12px; color: #666; margin-bottom: 8px; display: flex; align-items: center; gap: 4px; }
-        .rating i { color: #f4b400; }
         .traveler-count { font-size: 11px; color: #137333; font-weight: 600; margin-bottom: 12px; }
         .price { font-size: 15px; font-weight: 800; color: var(--primary-red); margin-top: auto; margin-bottom: 12px; }
-        .tags-row { display: flex; gap: 5px; margin-bottom: 15px; }
+        .tags-row { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 15px; }
         .mini-tag { background: #f1f3f4; padding: 2px 8px; font-size: 10px; border-radius: 4px; color: #555; }
-        .btn-pesan-trip {
-            display: block; text-align: center; background: var(--primary-dark); color: white;
-            padding: 10px; border-radius: 8px; font-size: 13px; font-weight: 600;
+        
+        /* Tombol Detail Wisata */
+        .btn-detail-trip {
+            display: block; text-align: center; background: var(--white); color: var(--primary-dark);
+            border: 1.5px solid var(--primary-dark); padding: 10px; border-radius: 8px; 
+            font-size: 13px; font-weight: 600; transition: 0.3s;
         }
-        .btn-pesan-trip:hover { background: #8a3700; }
+        .btn-detail-trip:hover { background: var(--primary-dark); color: white; }
 
         @media (max-width: 992px) {
             .main-container { grid-template-columns: 1fr; }
             .trip-grid { grid-template-columns: repeat(2, 1fr); }
-            nav ul { display: none; }
         }
         @media (max-width: 600px) {
             .trip-grid { grid-template-columns: 1fr; }
@@ -114,22 +102,15 @@
 </head>
 <body>
 
-    <!-- Header -->
+    <!-- Header (Menu disederhanakan) -->
     <header>
         <a href="index.html" class="logo"><img src="logo.png" alt="Logo"></a>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="destinasi.html" style="color: var(--primary-red);">Destinasi Trip</a></li>
-                <li><a href="destinasi.html">Private Trip</a></li>
-                <li><a href="https://wa.me/628122230366?text=Halo%20Admin,%20saya%20ingin%20konsultasi%20Corporate%20Outing" target="_blank">Company Outing</a></li>
                 <li><a href="https://wa.me/628122230366?text=Halo%20Admin,%20saya%20butuh%20bantuan" target="_blank">Hubungi Kami</a></li>
             </ul>
         </nav>
-        <div class="auth-nav">
-            <a href="#" class="btn-reg" onclick="alert('Fitur dalam pemeliharaan')">Register</a>
-            <a href="#" class="btn-log" onclick="alert('Fitur dalam pemeliharaan')">Login</a>
-        </div>
     </header>
 
     <!-- Breadcrumb -->
@@ -143,106 +124,134 @@
         <aside class="sidebar">
             <h3>Filter Pencarian</h3>
             <div class="filter-group">
-                <label>Nama Produk</label>
-                <input type="text" placeholder="Cth: Papandayan, Darajat...">
+                <label>Cari Destinasi</label>
+                <input type="text" placeholder="Cth: Pantai, Gunung...">
             </div>
             <div class="filter-group">
-                <label>Kota / Wilayah</label>
+                <label>Durasi Paket</label>
                 <select>
-                    <option>Garut Kota & Sekitarnya</option>
-                    <option>Bandung Raya</option>
+                    <option>Semua Durasi</option>
+                    <option>One Day Trip</option>
+                    <option>2 Hari 1 Malam</option>
+                    <option>3 Hari 2 Malam</option>
                 </select>
             </div>
-            <div class="filter-group">
-                <label>Jenis Trip</label>
-                <span class="badge-filter active">Open Trip</span>
-                <span class="badge-filter">Private Trip</span>
-            </div>
-            <div class="filter-group">
-                <label>Durasi Trip</label>
-                <span class="badge-filter active">1 Hari</span>
-                <span class="badge-filter">2 Hari</span>
-            </div>
-            <button class="btn-terapkan" onclick="alert('Filter diterapkan!')">TERAPKAN</button>
+            <button class="btn-terapkan">TERAPKAN FILTER</button>
         </aside>
 
         <!-- Daftar Destinasi Wisata Garut -->
         <main class="trip-grid">
-            <!-- Item 1 -->
+            
+            <!-- Item 1: Gunung Papandayan (Tautan Aktif ke Halaman Detail) -->
             <div class="trip-card">
                 <div class="trip-thumb">
-                    <span class="status-badge">Open</span>
                     <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=400&q=80" alt="Papandayan">
                 </div>
                 <div class="trip-body">
                     <h4>One Day Trip Kawah Papandayan</h4>
-                    <div class="rating"><i class="fa-solid fa-star"></i> <b>4.9</b> (42)</div>
-                    <div class="traveler-count">⚡ 530 orang telah berangkat</div>
+                    <div class="traveler-count"><i class="fa-solid fa-clock"></i> 1 Hari Berangkat Tiap Hari</div>
                     <div class="tags-row">
                         <span class="mini-tag">Gunung</span>
-                        <span class="mini-tag">Adventure</span>
+                        <span class="mini-tag">Trekking</span>
+                        <span class="mini-tag">Hutan Mati</span>
                     </div>
-                    <div class="price">Rp. 225.000 <span style="font-size:11px; font-weight:normal; color:#666;">/pax</span></div>
-                    <a href="https://wa.me/628122230366?text=Halo%20Admin,%20saya%20mau%20booking%20One%20Day%20Trip%20Kawah%20Papandayan" target="_blank" class="btn-pesan-trip">Pesan via WhatsApp</a>
+                    <div class="price">Mulai Rp. 225.000 <span style="font-size:11px; font-weight:normal; color:#666;">/pax</span></div>
+                    
+                    <!-- MENGARAH KE PAGE BARU -->
+                    <a href="detail-papandayan.html" class="btn-detail-trip">Cek Detail Wisata</a>
                 </div>
             </div>
 
-            <!-- Item 2 -->
+            <!-- Item 2: Pantai Selatan -->
             <div class="trip-card">
                 <div class="trip-thumb">
-                    <span class="status-badge">Open</span>
-                    <img src="https://images.unsplash.com/photo-1544977457-36e4f3583688?auto=format&fit=crop&w=400&q=80" alt="Darajat Pass">
+                    <img src="https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?auto=format&fit=crop&w=400&q=80" alt="Pantai Garut">
                 </div>
                 <div class="trip-body">
-                    <h4>Relaxing Tour Darajat Pass & Cipanas</h4>
-                    <div class="rating"><i class="fa-solid fa-star"></i> <b>4.8</b> (38)</div>
-                    <div class="traveler-count">⚡ 410 orang telah berangkat</div>
+                    <h4>2D1N Explore Pantai Selatan Garut</h4>
+                    <div class="traveler-count"><i class="fa-solid fa-clock"></i> 2 Hari 1 Malam</div>
                     <div class="tags-row">
-                        <span class="mini-tag">Air Panas</span>
-                        <span class="mini-tag">Family Friendly</span>
+                        <span class="mini-tag">Santolo</span>
+                        <span class="mini-tag">Sayang Heulang</span>
+                        <span class="mini-tag">Pantai</span>
                     </div>
-                    <div class="price">Rp. 185.000 <span style="font-size:11px; font-weight:normal; color:#666;">/pax</span></div>
-                    <a href="https://wa.me/628122230366?text=Halo%20Admin,%20saya%20mau%20booking%20Relaxing%20Tour%20Darajat%20Pass" target="_blank" class="btn-pesan-trip">Pesan via WhatsApp</a>
+                    <div class="price">Mulai Rp. 450.000 <span style="font-size:11px; font-weight:normal; color:#666;">/pax</span></div>
+                    <a href="#" class="btn-detail-trip">Cek Detail Wisata</a>
                 </div>
             </div>
 
-            <!-- Item 3 -->
+            <!-- Item 3: Curug / Air Terjun -->
             <div class="trip-card">
                 <div class="trip-thumb">
-                    <span class="status-badge">Open</span>
+                    <img src="https://images.unsplash.com/photo-1588392382834-a891154bca4d?auto=format&fit=crop&w=400&q=80" alt="Curug Garut">
+                </div>
+                <div class="trip-body">
+                    <h4>One Day Trip Curug Sanghyang Taraje</h4>
+                    <div class="traveler-count"><i class="fa-solid fa-clock"></i> 1 Hari Berangkat Tiap Hari</div>
+                    <div class="tags-row">
+                        <span class="mini-tag">Air Terjun</span>
+                        <span class="mini-tag">Alam</span>
+                        <span class="mini-tag">Kebun Mawar</span>
+                    </div>
+                    <div class="price">Mulai Rp. 200.000 <span style="font-size:11px; font-weight:normal; color:#666;">/pax</span></div>
+                    <a href="#" class="btn-detail-trip">Cek Detail Wisata</a>
+                </div>
+            </div>
+
+            <!-- Item 4: Kuliner & Cipanas -->
+            <div class="trip-card">
+                <div class="trip-thumb">
                     <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=400&q=80" alt="Kuliner Garut">
                 </div>
                 <div class="trip-body">
-                    <h4>Culinary & Souvenir Hunt Garut</h4>
-                    <div class="rating"><i class="fa-solid fa-star"></i> <b>5.0</b> (29)</div>
-                    <div class="traveler-count">⚡ 280 orang telah berangkat</div>
+                    <h4>2D1N Culinary, Hot Spring & Oleh-Oleh</h4>
+                    <div class="traveler-count"><i class="fa-solid fa-clock"></i> 2 Hari 1 Malam</div>
                     <div class="tags-row">
+                        <span class="mini-tag">Darajat Pass</span>
                         <span class="mini-tag">Kuliner</span>
-                        <span class="mini-tag">Oleh-Oleh</span>
+                        <span class="mini-tag">Sukaregang</span>
                     </div>
-                    <div class="price">Rp. 150.000 <span style="font-size:11px; font-weight:normal; color:#666;">/pax</span></div>
-                    <a href="https://wa.me/628122230366?text=Halo%20Admin,%20saya%20mau%20booking%20Culinary%20Hunt%20Garut" target="_blank" class="btn-pesan-trip">Pesan via WhatsApp</a>
+                    <div class="price">Mulai Rp. 350.000 <span style="font-size:11px; font-weight:normal; color:#666;">/pax</span></div>
+                    <a href="#" class="btn-detail-trip">Cek Detail Wisata</a>
                 </div>
             </div>
 
-            <!-- Item 4 -->
+            <!-- Item 5: Ultimate Garut -->
             <div class="trip-card">
                 <div class="trip-thumb">
-                    <span class="status-badge">Private</span>
-                    <img src="https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?auto=format&fit=crop&w=400&q=80" alt="Pantai Sayang Heulang">
+                    <img src="https://images.unsplash.com/photo-1544977457-36e4f3583688?auto=format&fit=crop&w=400&q=80" alt="Darajat">
                 </div>
                 <div class="trip-body">
-                    <h4>Private Excursion Pantai Sayang Heulang</h4>
-                    <div class="rating"><i class="fa-solid fa-star"></i> <b>4.9</b> (61)</div>
-                    <div class="traveler-count">⚡ 890 orang telah berangkat</div>
+                    <h4>3D2N Ultimate Garut Adventure</h4>
+                    <div class="traveler-count"><i class="fa-solid fa-clock"></i> 3 Hari 2 Malam</div>
                     <div class="tags-row">
+                        <span class="mini-tag">Gunung</span>
                         <span class="mini-tag">Pantai</span>
-                        <span class="mini-tag">Private Trip</span>
+                        <span class="mini-tag">Kawah</span>
                     </div>
-                    <div class="price">Rp. 450.000 <span style="font-size:11px; font-weight:normal; color:#666;">/pax</span></div>
-                    <a href="https://wa.me/628122230366?text=Halo%20Admin,%20saya%20mau%20booking%20Private%20Excursion%20Pantai%20Garut" target="_blank" class="btn-pesan-trip">Pesan via WhatsApp</a>
+                    <div class="price">Mulai Rp. 850.000 <span style="font-size:11px; font-weight:normal; color:#666;">/pax</span></div>
+                    <a href="#" class="btn-detail-trip">Cek Detail Wisata</a>
                 </div>
             </div>
+
+            <!-- Item 6: Candi & Danau -->
+            <div class="trip-card">
+                <div class="trip-thumb">
+                    <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=400&q=80" alt="Situ Cangkuang">
+                </div>
+                <div class="trip-body">
+                    <h4>One Day Trip Situ Cangkuang & Candi</h4>
+                    <div class="traveler-count"><i class="fa-solid fa-clock"></i> 1 Hari Berangkat Tiap Hari</div>
+                    <div class="tags-row">
+                        <span class="mini-tag">Budaya</span>
+                        <span class="mini-tag">Danau</span>
+                        <span class="mini-tag">Sejarah</span>
+                    </div>
+                    <div class="price">Mulai Rp. 180.000 <span style="font-size:11px; font-weight:normal; color:#666;">/pax</span></div>
+                    <a href="#" class="btn-detail-trip">Cek Detail Wisata</a>
+                </div>
+            </div>
+
         </main>
     </div>
 
