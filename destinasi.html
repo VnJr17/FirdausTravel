@@ -24,7 +24,7 @@
         body { background-color: var(--bg-light); color: var(--text-main); }
         a { text-decoration: none; }
 
-        /* Navbar */
+        /* Navbar Sederhana (Menu Dihapus Sesuai Request) */
         header {
             display: flex; justify-content: space-between; align-items: center;
             padding: 15px 8%; background: var(--white); border-bottom: 1px solid #eaeaea;
@@ -32,7 +32,7 @@
         .logo img { height: 45px; }
         nav ul { display: flex; gap: 25px; list-style: none; }
         nav ul li a { color: var(--text-main); font-weight: 600; font-size: 15px; }
-        nav ul li a:hover { color: var(--primary-red); }
+        nav ul li a:hover { color: var(--primary-dark); }
 
         /* Breadcrumb */
         .breadcrumb { padding: 20px 8% 10px; font-size: 14px; color: #666; }
@@ -58,9 +58,10 @@
             width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-size: 13px; outline: none;
         }
         .btn-terapkan {
-            width: 100%; background: var(--primary-red); color: white; border: none;
-            padding: 12px; border-radius: 8px; font-weight: 700; cursor: pointer; text-align: center;
+            width: 100%; background: var(--primary-dark); color: white; border: none;
+            padding: 12px; border-radius: 8px; font-weight: 700; cursor: pointer; text-align: center; transition: 0.3s;
         }
+        .btn-terapkan:hover { background: #8a3700; }
 
         /* Content Grid */
         .trip-grid {
@@ -77,11 +78,11 @@
         .trip-thumb { position: relative; width: 100%; height: 180px; }
         .trip-thumb img { width: 100%; height: 100%; object-fit: cover; }
         .trip-body { padding: 15px; display: flex; flex-direction: column; flex: 1; }
-        .trip-body h4 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: #222; }
+        .trip-body h4 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: #222; line-height: 1.4; }
         .traveler-count { font-size: 11px; color: #137333; font-weight: 600; margin-bottom: 12px; }
-        .price { font-size: 15px; font-weight: 800; color: var(--primary-red); margin-top: auto; margin-bottom: 12px; }
+        .price { font-size: 15px; font-weight: 800; color: var(--primary-dark); margin-top: auto; margin-bottom: 12px; }
         .tags-row { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 15px; }
-        .mini-tag { background: #f1f3f4; padding: 2px 8px; font-size: 10px; border-radius: 4px; color: #555; }
+        .mini-tag { background: #f1f3f4; padding: 4px 8px; font-size: 10px; border-radius: 4px; color: #555; font-weight: 500;}
         
         /* Tombol Detail Wisata */
         .btn-detail-trip {
@@ -102,7 +103,7 @@
 </head>
 <body>
 
-    <!-- Header (Menu disederhanakan) -->
+    <!-- Header Bersih (Sesuai Request) -->
     <header>
         <a href="index.html" class="logo"><img src="logo.png" alt="Logo"></a>
         <nav>
@@ -115,7 +116,7 @@
 
     <!-- Breadcrumb -->
     <div class="breadcrumb">
-        <a href="index.html">Home</a> > <b>Trip Spesial Garut & Sekitarnya</b>
+        <a href="index.html">Home</a> > <b>Katalog Trip Garut</b>
     </div>
 
     <!-- Main Section -->
@@ -130,7 +131,6 @@
             <div class="filter-group">
                 <label>Durasi Paket</label>
                 <select>
-                    <option>Semua Durasi</option>
                     <option>One Day Trip</option>
                     <option>2 Hari 1 Malam</option>
                     <option>3 Hari 2 Malam</option>
@@ -139,116 +139,150 @@
             <button class="btn-terapkan">TERAPKAN FILTER</button>
         </aside>
 
-        <!-- Daftar Destinasi Wisata Garut -->
+        <!-- Daftar Destinasi (Sesuai dengan 9 Template Foto Anda) -->
         <main class="trip-grid">
             
-            <!-- Item 1: Gunung Papandayan (Tautan Aktif ke Halaman Detail) -->
+            <!-- Paket 1: Cangkuang & Sabda Alam -->
             <div class="trip-card">
-                <div class="trip-thumb">
-                    <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=400&q=80" alt="Papandayan">
-                </div>
+                <div class="trip-thumb"><img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=400&q=80" alt="Cangkuang"></div>
                 <div class="trip-body">
-                    <h4>One Day Trip Kawah Papandayan</h4>
+                    <h4>1 Day Trip: Situ Cangkuang & Sabda Alam</h4>
                     <div class="traveler-count"><i class="fa-solid fa-clock"></i> 1 Hari Berangkat Tiap Hari</div>
                     <div class="tags-row">
-                        <span class="mini-tag">Gunung</span>
-                        <span class="mini-tag">Trekking</span>
-                        <span class="mini-tag">Hutan Mati</span>
+                        <span class="mini-tag">Candi Cangkuang</span>
+                        <span class="mini-tag">Sabda Alam</span>
+                        <span class="mini-tag">Oleh-oleh SBR 3</span>
+                    </div>
+                    <div class="price">Mulai Rp. 200.000 <span style="font-size:11px; font-weight:normal; color:#666;">/pax</span></div>
+                    <a href="detail-cangkuang.html" class="btn-detail-trip">Cek Detail Wisata</a>
+                </div>
+            </div>
+
+            <!-- Paket 2: Darajat & Kebun Mawar -->
+            <div class="trip-card">
+                <div class="trip-thumb"><img src="https://images.unsplash.com/photo-1544977457-36e4f3583688?auto=format&fit=crop&w=400&q=80" alt="Darajat"></div>
+                <div class="trip-body">
+                    <h4>1 Day Trip: Darajat Pass & Kebun Mawar</h4>
+                    <div class="traveler-count"><i class="fa-solid fa-clock"></i> 1 Hari Berangkat Tiap Hari</div>
+                    <div class="tags-row">
+                        <span class="mini-tag">Kawah Darajat</span>
+                        <span class="mini-tag">Kebun Mawar</span>
+                        <span class="mini-tag">Sukaregang</span>
+                    </div>
+                    <div class="price">Mulai Rp. 210.000 <span style="font-size:11px; font-weight:normal; color:#666;">/pax</span></div>
+                    <a href="detail-darajat.html" class="btn-detail-trip">Cek Detail Wisata</a>
+                </div>
+            </div>
+
+            <!-- Paket 3: Talaga Bodas & Tropikana -->
+            <div class="trip-card">
+                <div class="trip-thumb"><img src="https://images.unsplash.com/photo-1588392382834-a891154bca4d?auto=format&fit=crop&w=400&q=80" alt="Talaga Bodas"></div>
+                <div class="trip-body">
+                    <h4>1 Day Trip: Talaga Bodas & Tropikana</h4>
+                    <div class="traveler-count"><i class="fa-solid fa-clock"></i> 1 Hari Berangkat Tiap Hari</div>
+                    <div class="tags-row">
+                        <span class="mini-tag">Talaga Bodas</span>
+                        <span class="mini-tag">Tropikana</span>
+                        <span class="mini-tag">RM Sugema Raya</span>
                     </div>
                     <div class="price">Mulai Rp. 225.000 <span style="font-size:11px; font-weight:normal; color:#666;">/pax</span></div>
-                    
-                    <!-- MENGARAH KE PAGE BARU -->
+                    <a href="detail-talagabodas.html" class="btn-detail-trip">Cek Detail Wisata</a>
+                </div>
+            </div>
+
+            <!-- Paket 4: Papandayan (Sudah Dibuatkan Detailnya) -->
+            <div class="trip-card">
+                <div class="trip-thumb"><img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=400&q=80" alt="Papandayan"></div>
+                <div class="trip-body">
+                    <h4>1 Day Trip: Kawah Papandayan & Cafe</h4>
+                    <div class="traveler-count"><i class="fa-solid fa-clock"></i> 1 Hari Berangkat Tiap Hari</div>
+                    <div class="tags-row">
+                        <span class="mini-tag">Gunung Papandayan</span>
+                        <span class="mini-tag">Bumi Upi</span>
+                        <span class="mini-tag">Chocodot Castle</span>
+                    </div>
+                    <div class="price">Mulai Rp. 225.000 <span style="font-size:11px; font-weight:normal; color:#666;">/pax</span></div>
                     <a href="detail-papandayan.html" class="btn-detail-trip">Cek Detail Wisata</a>
                 </div>
             </div>
 
-            <!-- Item 2: Pantai Selatan -->
+            <!-- Paket 5: Awit Sinar Alam & Saung Ciburial -->
             <div class="trip-card">
-                <div class="trip-thumb">
-                    <img src="https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?auto=format&fit=crop&w=400&q=80" alt="Pantai Garut">
-                </div>
+                <div class="trip-thumb"><img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=400&q=80" alt="Awit Alam"></div>
                 <div class="trip-body">
-                    <h4>2D1N Explore Pantai Selatan Garut</h4>
-                    <div class="traveler-count"><i class="fa-solid fa-clock"></i> 2 Hari 1 Malam</div>
+                    <h4>1 Day Trip: Pemandian Alam & Desa Wisata</h4>
+                    <div class="traveler-count"><i class="fa-solid fa-clock"></i> 1 Hari Berangkat Tiap Hari</div>
                     <div class="tags-row">
-                        <span class="mini-tag">Santolo</span>
-                        <span class="mini-tag">Sayang Heulang</span>
-                        <span class="mini-tag">Pantai</span>
+                        <span class="mini-tag">Awit Sinar Alam</span>
+                        <span class="mini-tag">Saung Ciburial</span>
+                        <span class="mini-tag">Pasar Ceplak</span>
                     </div>
-                    <div class="price">Mulai Rp. 450.000 <span style="font-size:11px; font-weight:normal; color:#666;">/pax</span></div>
-                    <a href="#" class="btn-detail-trip">Cek Detail Wisata</a>
+                    <div class="price">Mulai Rp. 195.000 <span style="font-size:11px; font-weight:normal; color:#666;">/pax</span></div>
+                    <a href="detail-awitalam.html" class="btn-detail-trip">Cek Detail Wisata</a>
                 </div>
             </div>
 
-            <!-- Item 3: Curug / Air Terjun -->
+            <!-- Paket 6: Explore Pantai Selatan -->
             <div class="trip-card">
-                <div class="trip-thumb">
-                    <img src="https://images.unsplash.com/photo-1588392382834-a891154bca4d?auto=format&fit=crop&w=400&q=80" alt="Curug Garut">
-                </div>
+                <div class="trip-thumb"><img src="https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?auto=format&fit=crop&w=400&q=80" alt="Pantai Selatan"></div>
                 <div class="trip-body">
-                    <h4>One Day Trip Curug Sanghyang Taraje</h4>
+                    <h4>1 Day Trip: Explore Pantai Selatan Garut</h4>
                     <div class="traveler-count"><i class="fa-solid fa-clock"></i> 1 Hari Berangkat Tiap Hari</div>
                     <div class="tags-row">
-                        <span class="mini-tag">Air Terjun</span>
-                        <span class="mini-tag">Alam</span>
-                        <span class="mini-tag">Kebun Mawar</span>
+                        <span class="mini-tag">Sayang Heulang</span>
+                        <span class="mini-tag">Pantai Santolo</span>
+                        <span class="mini-tag">Puncak Guha</span>
+                    </div>
+                    <div class="price">Mulai Rp. 250.000 <span style="font-size:11px; font-weight:normal; color:#666;">/pax</span></div>
+                    <a href="detail-pantai.html" class="btn-detail-trip">Cek Detail Wisata</a>
+                </div>
+            </div>
+
+            <!-- Paket 7: Puncak Sagara & Hanjuang -->
+            <div class="trip-card">
+                <div class="trip-thumb"><img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?auto=format&fit=crop&w=400&q=80" alt="Sagara"></div>
+                <div class="trip-body">
+                    <h4>1 Day Trip: Puncak Sagara & Hot Spring</h4>
+                    <div class="traveler-count"><i class="fa-solid fa-clock"></i> 1 Hari Berangkat Tiap Hari</div>
+                    <div class="tags-row">
+                        <span class="mini-tag">Puncak Sagara</span>
+                        <span class="mini-tag">Sawah Lega Hegar</span>
+                        <span class="mini-tag">Hanjuang</span>
+                    </div>
+                    <div class="price">Mulai Rp. 215.000 <span style="font-size:11px; font-weight:normal; color:#666;">/pax</span></div>
+                    <a href="detail-sagara.html" class="btn-detail-trip">Cek Detail Wisata</a>
+                </div>
+            </div>
+
+            <!-- Paket 8: Antapura De Djati -->
+            <div class="trip-card">
+                <div class="trip-thumb"><img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=400&q=80" alt="Antapura"></div>
+                <div class="trip-body">
+                    <h4>1 Day Trip: Antapura De Djati & Nagara</h4>
+                    <div class="traveler-count"><i class="fa-solid fa-clock"></i> 1 Hari Berangkat Tiap Hari</div>
+                    <div class="tags-row">
+                        <span class="mini-tag">Antapura De Djati</span>
+                        <span class="mini-tag">Situ Bagendit</span>
+                        <span class="mini-tag">Nagara Hotspring</span>
+                    </div>
+                    <div class="price">Mulai Rp. 235.000 <span style="font-size:11px; font-weight:normal; color:#666;">/pax</span></div>
+                    <a href="detail-antapura.html" class="btn-detail-trip">Cek Detail Wisata</a>
+                </div>
+            </div>
+
+            <!-- Paket 9: Cikembulan & Cipta Bela -->
+            <div class="trip-card">
+                <div class="trip-thumb"><img src="https://images.unsplash.com/photo-1544977457-36e4f3583688?auto=format&fit=crop&w=400&q=80" alt="Cikembulan"></div>
+                <div class="trip-body">
+                    <h4>1 Day Trip: Satwa Cikembulan & Cipta Bela</h4>
+                    <div class="traveler-count"><i class="fa-solid fa-clock"></i> 1 Hari Berangkat Tiap Hari</div>
+                    <div class="tags-row">
+                        <span class="mini-tag">Taman Satwa</span>
+                        <span class="mini-tag">Muara Sunda</span>
+                        <span class="mini-tag">Cipta Bela</span>
                     </div>
                     <div class="price">Mulai Rp. 200.000 <span style="font-size:11px; font-weight:normal; color:#666;">/pax</span></div>
-                    <a href="#" class="btn-detail-trip">Cek Detail Wisata</a>
-                </div>
-            </div>
-
-            <!-- Item 4: Kuliner & Cipanas -->
-            <div class="trip-card">
-                <div class="trip-thumb">
-                    <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=400&q=80" alt="Kuliner Garut">
-                </div>
-                <div class="trip-body">
-                    <h4>2D1N Culinary, Hot Spring & Oleh-Oleh</h4>
-                    <div class="traveler-count"><i class="fa-solid fa-clock"></i> 2 Hari 1 Malam</div>
-                    <div class="tags-row">
-                        <span class="mini-tag">Darajat Pass</span>
-                        <span class="mini-tag">Kuliner</span>
-                        <span class="mini-tag">Sukaregang</span>
-                    </div>
-                    <div class="price">Mulai Rp. 350.000 <span style="font-size:11px; font-weight:normal; color:#666;">/pax</span></div>
-                    <a href="#" class="btn-detail-trip">Cek Detail Wisata</a>
-                </div>
-            </div>
-
-            <!-- Item 5: Ultimate Garut -->
-            <div class="trip-card">
-                <div class="trip-thumb">
-                    <img src="https://images.unsplash.com/photo-1544977457-36e4f3583688?auto=format&fit=crop&w=400&q=80" alt="Darajat">
-                </div>
-                <div class="trip-body">
-                    <h4>3D2N Ultimate Garut Adventure</h4>
-                    <div class="traveler-count"><i class="fa-solid fa-clock"></i> 3 Hari 2 Malam</div>
-                    <div class="tags-row">
-                        <span class="mini-tag">Gunung</span>
-                        <span class="mini-tag">Pantai</span>
-                        <span class="mini-tag">Kawah</span>
-                    </div>
-                    <div class="price">Mulai Rp. 850.000 <span style="font-size:11px; font-weight:normal; color:#666;">/pax</span></div>
-                    <a href="#" class="btn-detail-trip">Cek Detail Wisata</a>
-                </div>
-            </div>
-
-            <!-- Item 6: Candi & Danau -->
-            <div class="trip-card">
-                <div class="trip-thumb">
-                    <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=400&q=80" alt="Situ Cangkuang">
-                </div>
-                <div class="trip-body">
-                    <h4>One Day Trip Situ Cangkuang & Candi</h4>
-                    <div class="traveler-count"><i class="fa-solid fa-clock"></i> 1 Hari Berangkat Tiap Hari</div>
-                    <div class="tags-row">
-                        <span class="mini-tag">Budaya</span>
-                        <span class="mini-tag">Danau</span>
-                        <span class="mini-tag">Sejarah</span>
-                    </div>
-                    <div class="price">Mulai Rp. 180.000 <span style="font-size:11px; font-weight:normal; color:#666;">/pax</span></div>
-                    <a href="#" class="btn-detail-trip">Cek Detail Wisata</a>
+                    <a href="detail-cikembulan.html" class="btn-detail-trip">Cek Detail Wisata</a>
                 </div>
             </div>
 
