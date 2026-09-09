@@ -20,32 +20,21 @@
         :root {
             --primary-color: #a44200; 
             --secondary-color: #d95e00;
-            --bg-color: #f8f9fa; /* Latar belakang sedikit abu agar kartu menonjol */
+            --bg-color: #f8f9fa;
             --text-dark: #333;
             --text-light: #666;
             --white: #ffffff;
             --border-color: #eaeaea;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-dark);
-            overflow-x: hidden;
-        }
-
+        body { background-color: var(--bg-color); color: var(--text-dark); overflow-x: hidden; }
         a { text-decoration: none; transition: 0.3s; }
 
         /* --- ANIMASI --- */
         .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
+            opacity: 0; transform: translateY(30px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
         .fade-in.show { opacity: 1; transform: translateY(0); }
@@ -54,9 +43,7 @@
         header {
             display: flex; justify-content: space-between; align-items: center;
             padding: 20px 8%; background: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: relative;
-            z-index: 10;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: relative; z-index: 10;
         }
         .logo img { height: 50px; object-fit: contain; }
         nav ul { display: flex; gap: 30px; list-style: none; }
@@ -69,126 +56,71 @@
         /* --- BLOG HERO SECTION --- */
         .blog-hero {
             background: linear-gradient(135deg, #7a3100, var(--primary-color));
-            padding: 80px 8% 120px;
-            text-align: center;
-            color: var(--white);
-            position: relative;
+            padding: 80px 8% 120px; text-align: center; color: var(--white); position: relative;
         }
         .blog-hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 15px; letter-spacing: -0.5px; }
         .blog-hero p { font-size: 1.1rem; font-weight: 400; max-width: 700px; margin: 0 auto; line-height: 1.6; opacity: 0.9; }
         
-        /* Dekorasi Gelombang (Sesuai Referensi Gambar) */
-        .wave-divider {
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            line-height: 0;
-        }
+        .wave-divider { position: absolute; bottom: -5px; left: 0; width: 100%; line-height: 0; }
         .wave-divider svg { display: block; width: calc(100% + 1.3px); height: 60px; }
         .wave-divider path { fill: var(--bg-color); }
 
-        /* --- BLOG GRID SECTION --- */
-        .blog-container { padding: 40px 8% 80px; }
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
+        /* --- DYNAMIC CONTAINER --- */
+        .blog-container { padding: 40px 8% 80px; min-height: 50vh;}
+        .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
 
         /* --- BLOG CARDS --- */
         .blog-card {
-            background: var(--white);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: var(--white); border-radius: 12px; overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06); display: flex; flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;
         }
-        .blog-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-        
+        .blog-card:hover { transform: translateY(-8px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
         .blog-img-wrapper { position: relative; height: 220px; overflow: hidden; }
         .blog-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
         .blog-card:hover .blog-img-wrapper img { transform: scale(1.05); }
-        
         .blog-tag {
-            position: absolute;
-            top: 15px; right: 15px;
-            background: rgba(0, 0, 0, 0.7);
-            color: var(--white);
-            padding: 5px 12px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            border-radius: 20px;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
+            position: absolute; top: 15px; right: 15px; background: rgba(0, 0, 0, 0.7);
+            color: var(--white); padding: 5px 12px; font-size: 0.75rem; font-weight: 600;
+            border-radius: 20px; letter-spacing: 0.5px; text-transform: uppercase;
         }
-
         .blog-content { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; }
-        .blog-title {
-            font-size: 1.25rem; font-weight: 700; color: #222;
-            margin-bottom: 15px; line-height: 1.4;
-        }
-        .blog-excerpt {
-            font-size: 0.95rem; color: var(--text-light);
-            line-height: 1.6; margin-bottom: 25px; flex-grow: 1;
-        }
-        
-        .read-more {
-            font-size: 0.9rem; font-weight: 700; color: var(--primary-color);
-            text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 20px;
-            display: inline-block; transition: color 0.3s;
-        }
+        .blog-title { font-size: 1.25rem; font-weight: 700; color: #222; margin-bottom: 15px; line-height: 1.4; }
+        .blog-excerpt { font-size: 0.95rem; color: var(--text-light); line-height: 1.6; margin-bottom: 25px; flex-grow: 1; }
+        .read-more { font-size: 0.9rem; font-weight: 700; color: var(--primary-color); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 20px; display: inline-block; transition: color 0.3s; }
         .read-more:hover { color: var(--secondary-color); text-decoration: underline; }
+        .blog-meta { font-size: 0.8rem; color: #999; border-top: 1px solid var(--border-color); padding-top: 15px; display: flex; align-items: center; gap: 5px; }
 
-        .blog-meta {
-            font-size: 0.8rem; color: #999;
-            border-top: 1px solid var(--border-color);
-            padding-top: 15px; display: flex; align-items: center; gap: 5px;
-        }
+        /* --- ARTICLE DETAIL VIEW --- */
+        .article-detail-view { display: none; background: var(--white); padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); }
+        .btn-back { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 20px; color: var(--primary-color); font-weight: 600; cursor: pointer; }
+        .btn-back:hover { text-decoration: underline; }
+        .detail-img { width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px; margin-bottom: 30px; }
+        .detail-title { font-size: 2.2rem; font-weight: 800; margin-bottom: 15px; color: #222; }
+        .detail-meta { font-size: 0.9rem; color: #888; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid var(--border-color); }
+        .detail-body { font-size: 1.05rem; line-height: 1.8; color: #444; }
+        .detail-body p { margin-bottom: 20px; }
 
         /* --- PAGINATION --- */
-        .pagination {
-            display: flex; justify-content: center; align-items: center;
-            gap: 10px; margin-top: 50px;
-        }
-        .pagination a, .pagination span {
-            display: flex; justify-content: center; align-items: center;
-            width: 40px; height: 40px; border-radius: 5px;
-            font-size: 1rem; font-weight: 600; color: var(--text-light);
-            transition: all 0.3s;
-        }
-        .pagination a:hover { background: #eee; color: var(--primary-color); }
-        .pagination a.active { background: var(--primary-color); color: var(--white); }
-        .pagination span { cursor: default; }
+        .pagination { display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 50px; }
+        .pagination button { display: flex; justify-content: center; align-items: center; width: 40px; height: 40px; border-radius: 5px; font-size: 1rem; font-weight: 600; color: var(--text-light); background: transparent; border: none; cursor: pointer; transition: all 0.3s; }
+        .pagination button:hover { background: #eee; color: var(--primary-color); }
+        .pagination button.active { background: var(--primary-color); color: var(--white); }
+        .pagination button:disabled { opacity: 0.5; cursor: not-allowed; }
 
         /* --- FOOTER --- */
-        footer {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 30px 8%; background: var(--white); border-top: 1px solid var(--border-color);
-        }
+        footer { display: flex; justify-content: space-between; align-items: center; padding: 30px 8%; background: var(--white); border-top: 1px solid var(--border-color); }
         .footer-logo img { height: 60px; }
         .footer-contact { text-align: center; color: var(--primary-color); font-weight: 600; }
         .footer-brand { text-align: right; color: var(--primary-color); font-weight: 800; font-size: 1.1rem; }
 
-        /* --- RESPONSIVE --- */
-        @media (max-width: 992px) {
-            .blog-grid { grid-template-columns: repeat(2, 1fr); }
-            nav ul { display: none; }
-        }
-        @media (max-width: 600px) {
-            .blog-hero h1 { font-size: 2.2rem; }
-            .blog-grid { grid-template-columns: 1fr; }
-        }
+        @media (max-width: 992px) { .blog-grid { grid-template-columns: repeat(2, 1fr); } nav ul { display: none; } }
+        @media (max-width: 600px) { .blog-hero h1 { font-size: 2.2rem; } .blog-grid { grid-template-columns: 1fr; } .article-detail-view { padding: 20px; } }
     </style>
 </head>
 <body>
 
-    <!-- Header / Navbar -->
+    <!-- Header -->
     <header>
         <a href="index.html" class="logo">
             <img src="logo.png" alt="Firdaus Tour & Travel">
@@ -199,7 +131,7 @@
                 <li><a href="destinasi.html">Destinasi Trip</a></li>
                 <li><a href="private-trip.html">Private Trip</a></li>
                 <li><a href="blog.html" class="active">Blog</a></li>
-                <li><a href="https://wa.me/628122230366?text=Halo%20Admin%20FirdausTravel..." target="_blank">Hubungi Kami</a></li>
+                <li><a href="https://wa.me/628122230366" target="_blank">Hubungi Kami</a></li>
             </ul>
         </nav>
         <div class="auth-buttons">
@@ -208,141 +140,178 @@
         </div>
     </header>
 
-    <!-- Blog Hero Section -->
-    <section class="blog-hero fade-in">
+    <!-- Blog Hero -->
+    <section class="blog-hero">
         <h1>Artikel Wisata Pilihan</h1>
-        <p>Dapatkan informasi wisata seputar alam, kuliner, dan sejarah menarik di Garut dan sekitarnya. Selamat berpetualang dan menikmati keindahan alam!</p>
+        <p id="hero-desc">Dapatkan informasi wisata seputar alam, kuliner, dan sejarah menarik di Garut dan sekitarnya. Selamat berpetualang dan menikmati keindahan alam!</p>
         
-        <!-- Efek Kertas Sobek (Sesuai Referensi) -->
         <div class="wave-divider">
-            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
                 <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118,130.42,122.9,190.8,103.87,242.66,87.56,275.64,64.88,321.39,56.44Z"></path>
             </svg>
         </div>
     </section>
 
-    <!-- Blog List Section -->
-    <section class="blog-container fade-in">
-        <div class="blog-grid">
-            
-            <!-- Artikel 1 -->
-            <div class="blog-card">
-                <div class="blog-img-wrapper">
-                    <span class="blog-tag">Destinasi</span>
-                    <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=600&q=80" alt="Kawah Papandayan">
-                </div>
-                <div class="blog-content">
-                    <h3 class="blog-title">Panduan Lengkap Mendaki Gunung Papandayan untuk Pemula</h3>
-                    <p class="blog-excerpt">Gunung Papandayan sangat ramah untuk pendaki pemula. Temukan rute terbaik, padang edelweis yang memukau, dan persiapan apa saja yang harus dibawa...</p>
-                    <a href="#" class="read-more">Read More »</a>
-                    <div class="blog-meta">Agustus 12, 2026 • 2 Comments</div>
-                </div>
+    <!-- Main Content Area (Berubah via JS) -->
+    <section class="blog-container">
+        
+        <!-- Mode Grid & Paginasi -->
+        <div id="blog-list-view">
+            <div class="blog-grid" id="blog-grid">
+                <!-- Card artikel akan dimuat di sini oleh JavaScript -->
             </div>
-
-            <!-- Artikel 2 -->
-            <div class="blog-card">
-                <div class="blog-img-wrapper">
-                    <span class="blog-tag">Kuliner Lokal</span>
-                    <img src="https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&w=600&q=80" alt="Kuliner Garut">
-                </div>
-                <div class="blog-content">
-                    <h3 class="blog-title">Wisata Kuliner Garut: Lebih dari Sekadar Dodol dan Baso Aci</h3>
-                    <p class="blog-excerpt">Membahas Garut tak lengkap rasanya tanpa mengulik kulinernya. Berikut adalah deretan makanan khas lokal yang wajib Anda cicipi saat berlibur...</p>
-                    <a href="#" class="read-more">Read More »</a>
-                    <div class="blog-meta">Agustus 05, 2026 • 5 Comments</div>
-                </div>
+            <div class="pagination" id="pagination">
+                <!-- Tombol paginasi akan dimuat di sini -->
             </div>
-
-            <!-- Artikel 3 -->
-            <div class="blog-card">
-                <div class="blog-img-wrapper">
-                    <span class="blog-tag">Sejarah</span>
-                    <img src="https://images.unsplash.com/photo-1584346830509-3a32f62cb9bd?auto=format&fit=crop&w=600&q=80" alt="Candi Cangkuang">
-                </div>
-                <div class="blog-content">
-                    <h3 class="blog-title">Sejarah Menarik Candi Cangkuang & Jejak Kampung Adat Pulo</h3>
-                    <p class="blog-excerpt">Menyusuri satu-satunya candi Hindu di Jawa Barat dan melihat bagaimana toleransi serta adat istiadat leluhur masih dijaga erat di Kampung Pulo...</p>
-                    <a href="#" class="read-more">Read More »</a>
-                    <div class="blog-meta">Juli 28, 2026 • 0 Comments</div>
-                </div>
-            </div>
-
-            <!-- Artikel 4 -->
-            <div class="blog-card">
-                <div class="blog-img-wrapper">
-                    <span class="blog-tag">Tips Liburan</span>
-                    <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=600&q=80" alt="Tips Liburan">
-                </div>
-                <div class="blog-content">
-                    <h3 class="blog-title">Checklist Barang yang Wajib Dibawa Saat Trip ke Pegunungan Garut</h3>
-                    <p class="blog-excerpt">Suhu udara di daerah pegunungan seperti Darajat dan Cikuray bisa sangat dingin. Pastikan 5 barang esensial ini sudah ada di dalam tas Anda...</p>
-                    <a href="#" class="read-more">Read More »</a>
-                    <div class="blog-meta">Juli 15, 2026 • 1 Comments</div>
-                </div>
-            </div>
-
-            <!-- Artikel 5 -->
-            <div class="blog-card">
-                <div class="blog-img-wrapper">
-                    <span class="blog-tag">Akomodasi</span>
-                    <img src="https://images.unsplash.com/photo-1542314831-c6a4d27ece50?auto=format&fit=crop&w=600&q=80" alt="Glamping Garut">
-                </div>
-                <div class="blog-content">
-                    <h3 class="blog-title">5 Rekomendasi Glamping Pinggir Danau Terbaik di Jawa Barat</h3>
-                    <p class="blog-excerpt">Menawarkan sensasi menginap di alam terbuka namun dengan fasilitas sekelas hotel bintang lima. Cocok untuk liburan keluarga atau *honeymoon*...</p>
-                    <a href="#" class="read-more">Read More »</a>
-                    <div class="blog-meta">Juni 30, 2026 • 8 Comments</div>
-                </div>
-            </div>
-
-            <!-- Artikel 6 -->
-            <div class="blog-card">
-                <div class="blog-img-wrapper">
-                    <span class="blog-tag">Keluarga</span>
-                    <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=600&q=80" alt="Pemandian Air Panas">
-                </div>
-                <div class="blog-content">
-                    <h3 class="blog-title">Menikmati Sensasi Pemandian Air Panas Alami di Darajat Pass</h3>
-                    <p class="blog-excerpt">Melepas penat setelah seharian bekerja dengan berendam di air panas alami bersumber dari kawah gunung. Destinasi favorit warga kota di akhir pekan...</p>
-                    <a href="#" class="read-more">Read More »</a>
-                    <div class="blog-meta">Juni 18, 2026 • 3 Comments</div>
-                </div>
-            </div>
-
         </div>
 
-        <!-- Bagian Pagination (Angka Halaman) -->
-        <div class="pagination">
-            <a href="#" class="active">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <span>...</span>
-            <a href="#">&raquo;</a>
+        <!-- Mode Detail Artikel -->
+        <div id="article-detail-view" class="article-detail-view">
+            <span class="btn-back" onclick="showList()"><i class="fa-solid fa-arrow-left"></i> Kembali ke Daftar Artikel</span>
+            <img id="detail-img" class="detail-img" src="" alt="Thumbnail">
+            <h1 id="detail-title" class="detail-title">Judul</h1>
+            <div id="detail-meta" class="detail-meta">Kategori • Tanggal</div>
+            <div id="detail-body" class="detail-body">
+                <!-- Isi artikel dimuat di sini -->
+            </div>
         </div>
+
     </section>
 
     <!-- Footer -->
-    <footer class="fade-in">
+    <footer>
         <div class="footer-logo"><img src="logo.png" alt="Firdaus Travel"></div>
         <div class="footer-contact"><p>Contact Us:</p><p>📞 08122230366</p></div>
         <div class="footer-brand"><p>FIRDAUS TOUR<br>AND TRAVEL</p></div>
     </footer>
 
     <script>
-        // Alert untuk tombol auth
         function alertMaintenance() {
             alert("Mohon maaf, sistem pendaftaran saat ini sedang dalam proses update.\n\nSilakan hubungi admin kami via WhatsApp.");
         }
 
-        // Animasi Scroll (Fade In)
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                }
+        // --- DATABASE ARTIKEL DUMMY ---
+        const articles = [
+            // Halaman 1
+            { id: 1, tag: "Destinasi", date: "Agustus 12, 2026", comments: 2, title: "Panduan Lengkap Mendaki Gunung Papandayan untuk Pemula", img: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=600&q=80", excerpt: "Gunung Papandayan sangat ramah untuk pendaki pemula. Temukan rute terbaik, padang edelweis yang memukau...", content: "<p>Gunung Papandayan merupakan salah satu gunung berapi aktif yang terletak di Kabupaten Garut, Jawa Barat. Dengan ketinggian 2.665 mdpl, gunung ini sangat difavoritkan oleh para pendaki pemula karena jalurnya yang relatif landai.</p><p>Daya tarik utama Gunung Papandayan adalah area kawahnya yang masih aktif mengeluarkan uap belerang, Hutan Mati dengan pemandangan magis pepohonan sisa erupsi, serta Tegal Alun, padang Bunga Edelweiss terbesar di Jawa Barat.</p><p>Untuk mendaki, pastikan Anda membawa masker penutup hidung karena bau belerang cukup menyengat di awal pendakian, serta jaket tebal karena suhu di malam hari bisa mencapai 5 derajat Celcius.</p>" },
+            { id: 2, tag: "Kuliner Lokal", date: "Agustus 05, 2026", comments: 5, title: "Wisata Kuliner Garut: Lebih dari Sekadar Dodol dan Baso Aci", img: "https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&w=600&q=80", excerpt: "Membahas Garut tak lengkap rasanya tanpa mengulik kulinernya. Berikut adalah deretan makanan khas lokal...", content: "<p>Siapa yang tidak kenal Dodol Garut? Namun, Garut menyimpan kekayaan kuliner yang jauh lebih luas dari itu. Mulai dari Baso Aci yang pedas dan gurih, hingga hidangan legendaris lainnya yang wajib Anda coba.</p><p>Salah satu yang patut dicoba adalah Burayot, kue manis tradisional berbahan dasar tepung beras dan gula merah yang digoreng bentuk unik. Jangan lupakan juga Nasi Liwet instan khas Garut yang aromanya sangat menggugah selera jika dipadukan dengan ikan asin dan sambal terasi.</p>" },
+            { id: 3, tag: "Sejarah", date: "Juli 28, 2026", comments: 0, title: "Sejarah Menarik Candi Cangkuang & Jejak Kampung Adat Pulo", img: "https://images.unsplash.com/photo-1584346830509-3a32f62cb9bd?auto=format&fit=crop&w=600&q=80", excerpt: "Menyusuri satu-satunya candi Hindu di Jawa Barat dan melihat bagaimana toleransi serta adat istiadat...", content: "<p>Candi Cangkuang adalah satu-satunya candi Hindu yang ditemukan di Tatar Sunda. Terletak di sebuah pulau kecil di tengah situ (danau) Cangkuang, Kecamatan Leles, candi ini menawarkan wisata sejarah yang berpadu dengan keindahan alam.</p><p>Di area yang sama, terdapat Kampung Pulo, sebuah kampung adat yang hanya terdiri dari 6 rumah dan 1 masjid. Penduduknya merupakan keturunan dari Eyang Embah Dalem Arif Muhammad, penyebar agama Islam di wilayah ini. Uniknya, makam pemuka agama Islam ini letaknya bersebelahan persis dengan Candi Hindu, yang melambangkan toleransi tinggi sejak zaman dahulu.</p>" },
+            { id: 4, tag: "Tips Liburan", date: "Juli 15, 2026", comments: 1, title: "Checklist Barang yang Wajib Dibawa Saat Trip ke Pegunungan Garut", img: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=600&q=80", excerpt: "Suhu udara di daerah pegunungan seperti Darajat dan Cikuray bisa sangat dingin. Pastikan 5 barang esensial ini...", content: "<p>Persiapan adalah kunci liburan yang menyenangkan. Jika destinasi Anda adalah area pegunungan di Garut, berikut adalah 5 barang yang tidak boleh tertinggal:</p><ol><li><strong>Jaket Windbreaker/Tebal:</strong> Udara malam di Garut bisa sangat menusuk tulang.</li><li><strong>Obat-obatan Pribadi:</strong> Apotek mungkin jauh jika Anda menginap di area perbukitan.</li><li><strong>Kamera/Smartphone dengan Memori Lega:</strong> Pemandangan alam Garut terlalu sayang untuk dilewatkan.</li><li><strong>Pakaian Ganti Ekstra:</strong> Terutama jika rencana Anda mencakup berendam di air panas.</li><li><strong>Uang Tunai:</strong> Banyak warung lokal atau tiket masuk wisata alam yang belum mendukung pembayaran digital.</li></ol>" },
+            { id: 5, tag: "Akomodasi", date: "Juni 30, 2026", comments: 8, title: "5 Rekomendasi Glamping Pinggir Danau Terbaik di Jawa Barat", img: "https://images.unsplash.com/photo-1542314831-c6a4d27ece50?auto=format&fit=crop&w=600&q=80", excerpt: "Menawarkan sensasi menginap di alam terbuka namun dengan fasilitas sekelas hotel bintang lima...", content: "<p>Tren Glamorous Camping (Glamping) semakin menjamur di Garut. Berada di kelilingi pegunungan membuat Garut menjadi lokasi sempurna untuk glamping pinggir danau.</p><p>Beberapa lokasi favorit wisatawan antara lain Sabda Alam, Karacak Valley, dan kawasan Situ Cibeureum. Menginap di glamping memberikan pengalaman bangun tidur disambut kabut dan suara burung, namun Anda tetap bisa mandi air hangat dan tidur di kasur empuk.</p>" },
+            { id: 6, tag: "Keluarga", date: "Juni 18, 2026", comments: 3, title: "Menikmati Sensasi Pemandian Air Panas Alami di Darajat Pass", img: "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=600&q=80", excerpt: "Melepas penat setelah seharian bekerja dengan berendam di air panas alami bersumber dari kawah gunung...", content: "<p>Kawasan Wisata Darajat Pass yang terletak di Pasirwangi, Garut, menjadi primadona keluarga saat akhir pekan. Berada di ketinggian, tempat ini menawarkan kolam pemandian air panas alami langsung dari perut bumi.</p><p>Selain kolam air panas, terdapat juga waterpark untuk anak-anak, fasilitas outbound, dan pemandangan lembah Garut yang luar biasa indah. Datanglah sore hingga malam hari untuk sensasi berendam air hangat di tengah suhu udara yang dingin merona.</p>" },
+            
+            // Halaman 2
+            { id: 7, tag: "Alam", date: "Mei 10, 2026", comments: 0, title: "Pesona Kebun Mawar Situhapa di Kaki Gunung Guntur", img: "https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=600&q=80", excerpt: "Lebih dari 500 jenis bunga mawar mekar di kawasan ini. Tempat sempurna untuk bersantai atau prewedding...", content: "<p>Kebun Mawar Situhapa berlokasi di area Kamojang. Tempat ini menyuguhkan hamparan ribuan bunga mawar dari ratusan jenis yang berbeda.</p><p>Suasananya sangat bergaya Eropa, lengkap dengan penginapan berbahan kayu dan restoran klasik. Sangat cocok bagi pecinta fotografi.</p>" },
+            { id: 8, tag: "Pantai", date: "April 22, 2026", comments: 12, title: "Pantai Santolo: Keindahan Eksotis di Selatan Garut", img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80", excerpt: "Jelajahi keindahan laut selatan Jawa yang memiliki pasir putih dan gulungan ombak yang menantang...", content: "<p>Selain pegunungan, Garut juga memiliki kawasan pesisir yang menawan, salah satunya Pantai Santolo di Kecamatan Cikelet.</p><p>Dikenal dengan pasir putihnya yang bersih dan aktivitas nelayan lokal yang sibuk, Santolo juga menyajikan olahan *seafood* segar dengan harga yang terjangkau.</p>" },
+            { id: 9, tag: "Edukasi", date: "April 05, 2026", comments: 4, title: "Kawah Kamojang: Mengintip Pembangkit Listrik Tenaga Panas Bumi", img: "https://images.unsplash.com/photo-1522204523234-8729aa6e3d5f?auto=format&fit=crop&w=600&q=80", excerpt: "Mengenal energi terbarukan di kawah Kamojang yang telah beroperasi sejak zaman pemerintahan Hindia Belanda...", content: "<p>Kawah Kamojang bukanlah kawah gunung berapi biasa. Tempat ini adalah pusat Geotermal pertama di Indonesia.</p><p>Di sini Anda bisa mandi uap alami di Kawah Kereta Api, dan melihat bagaimana uap panas bumi dimanfaatkan untuk menggerakkan turbin listrik. Wisata edukasi yang sangat direkomendasikan!</p>" },
+            { id: 10, tag: "Kuliner", date: "Maret 18, 2026", comments: 1, title: "Rekomendasi Oleh-Oleh Khas Garut Paling Favorit", img: "https://images.unsplash.com/photo-1541592102775-7b565a0b73b5?auto=format&fit=crop&w=600&q=80", excerpt: "Selain dodol Picnic, ada kerupuk kulit, dorokdok, dan chocodot yang wajib diborong sebelum pulang...", content: "<p>Pulang liburan dari Garut tanpa membawa buah tangan rasanya ada yang kurang. Chocodot (Cokelat Isi Dodol) adalah inovasi modern yang sangat populer.</p><p>Jangan lewatkan pula Dorokdok dan Kerupuk Kulit khas Sukaregang yang super renyah!</p>" },
+            { id: 11, tag: "Petualangan", date: "Februari 12, 2026", comments: 7, title: "Pendakian Gunung Cikuray, Menembus Samudera Awan", img: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80", excerpt: "Gunung tertinggi di Kabupaten Garut yang menjanjikan lautan awan paling sempurna di Jawa Barat...", content: "<p>Dengan ketinggian 2.821 mdpl, Gunung Cikuray menawarkan rute yang cukup terjal dan menantang. Berbentuk kerucut raksasa, puncak Cikuray tak pernah gagal memberikan fenomena samudera awan bagi pendaki yang berhasil mencapai puncaknya di pagi hari.</p>" },
+            { id: 12, tag: "Wisata Air", date: "Januari 25, 2026", comments: 2, title: "Situ Bagendit Hadir dengan Wajah Baru yang Mewah", img: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=600&q=80", excerpt: "Setelah direvitalisasi, Situ Bagendit kini memiliki fasilitas modern tanpa menghilangkan legenda Nyai Bagendit...", content: "<p>Situ Bagendit di Kecamatan Banyuresmi baru saja selesai direvitalisasi. Kini dilengkapi dengan *jogging track*, amfiteater, dan perahu-perahu wisata yang rapi.</p><p>Pengunjung bisa menyewa rakit bambu atau perahu bebek sambil menikmati angin sepoi-sepoi dan panorama Gunung Haruman dan Guntur.</p>" },
+            
+            // Halaman 3
+            { id: 13, tag: "Belanja", date: "Desember 10, 2025", comments: 0, title: "Sentra Kerajinan Kulit Sukaregang: Kualitas Ekspor Harga Lokal", img: "https://images.unsplash.com/photo-1590874315082-d2cb6dcb8c20?auto=format&fit=crop&w=600&q=80", excerpt: "Mencari jaket kulit asli, tas, atau sepatu? Sukaregang adalah surga belanja kulit terbesar di Garut...", content: "<p>Jalan Sukaregang dipenuhi oleh ratusan toko yang menjual olahan kulit asli. Mulai dari dompet, ikat pinggang, sarung tangan, hingga jaket kulit khas *bikers*.</p><p>Produk di sini dikenal awet dan sering diekspor ke luar negeri. Pastikan Anda pintar menawar harga agar mendapat *deal* terbaik!</p>" },
+            { id: 14, tag: "Alam", date: "November 21, 2025", comments: 9, title: "Curug Sanghyang Taraje, Air Terjun Legendaris Sangkuriang", img: "https://images.unsplash.com/photo-1543886566-d3527dfa60f9?auto=format&fit=crop&w=600&q=80", excerpt: "Air terjun kembar megah yang tersembunyi di Pakenjeng. Konon merupakan tangga bagi Sangkuriang...", content: "<p>Terletak cukup jauh dari pusat kota Garut, Curug Sanghyang Taraje menawarkan kemegahan air terjun kembar dengan volume air yang masif.</p><p>Dikelilingi tebing hijau yang rimbun, percikan airnya yang segar bisa dirasakan dari jarak puluhan meter.</p>" }
+        ];
+
+        // --- SISTEM PAGINASI & RENDER ---
+        const itemsPerPage = 6;
+        let currentPage = 1;
+
+        function renderList(page) {
+            const start = (page - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+            const currentArticles = articles.slice(start, end);
+            const grid = document.getElementById('blog-grid');
+            
+            grid.innerHTML = '';
+            
+            currentArticles.forEach(article => {
+                const card = document.createElement('div');
+                card.className = 'blog-card fade-in';
+                card.onclick = () => showArticle(article.id);
+                
+                card.innerHTML = `
+                    <div class="blog-img-wrapper">
+                        <span class="blog-tag">${article.tag}</span>
+                        <img src="${article.img}" alt="${article.title}">
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">${article.title}</h3>
+                        <p class="blog-excerpt">${article.excerpt}</p>
+                        <span class="read-more">Read More »</span>
+                        <div class="blog-meta">${article.date} • ${article.comments} Comments</div>
+                    </div>
+                `;
+                grid.appendChild(card);
             });
-        });
-        document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+
+            // Trigger animasi manual
+            setTimeout(() => {
+                document.querySelectorAll('.blog-card').forEach(el => el.classList.add('show'));
+            }, 50);
+
+            renderPagination();
+        }
+
+        function renderPagination() {
+            const totalPages = Math.ceil(articles.length / itemsPerPage);
+            const paginationContainer = document.getElementById('pagination');
+            paginationContainer.innerHTML = '';
+
+            // Tombol Prev
+            const prevBtn = document.createElement('button');
+            prevBtn.innerHTML = '&laquo;';
+            prevBtn.disabled = currentPage === 1;
+            prevBtn.onclick = () => { currentPage--; renderList(currentPage); };
+            paginationContainer.appendChild(prevBtn);
+
+            // Angka Halaman
+            for (let i = 1; i <= totalPages; i++) {
+                const pageBtn = document.createElement('button');
+                pageBtn.innerText = i;
+                if (i === currentPage) pageBtn.classList.add('active');
+                pageBtn.onclick = () => { currentPage = i; renderList(currentPage); };
+                paginationContainer.appendChild(pageBtn);
+            }
+
+            // Tombol Next
+            const nextBtn = document.createElement('button');
+            nextBtn.innerHTML = '&raquo;';
+            nextBtn.disabled = currentPage === totalPages;
+            nextBtn.onclick = () => { currentPage++; renderList(currentPage); };
+            paginationContainer.appendChild(nextBtn);
+        }
+
+        function showArticle(id) {
+            const article = articles.find(a => a.id === id);
+            if (!article) return;
+
+            // Sembunyikan List, Tampilkan Detail
+            document.getElementById('blog-list-view').style.display = 'none';
+            document.getElementById('article-detail-view').style.display = 'block';
+
+            // Set Konten
+            document.getElementById('detail-img').src = article.img;
+            document.getElementById('detail-title').innerText = article.title;
+            document.getElementById('detail-meta').innerText = `${article.tag} • ${article.date} • ${article.comments} Komentar`;
+            document.getElementById('detail-body').innerHTML = article.content;
+
+            // Scroll ke atas
+            window.scrollTo({ top: 350, behavior: 'smooth' });
+        }
+
+        function showList() {
+            // Sembunyikan Detail, Tampilkan List
+            document.getElementById('article-detail-view').style.display = 'none';
+            document.getElementById('blog-list-view').style.display = 'block';
+            
+            // Scroll ke atas grid
+            window.scrollTo({ top: 350, behavior: 'smooth' });
+        }
+
+        // Inisialisasi Pertama Kali
+        renderList(currentPage);
+
     </script>
 </body>
 </html>
