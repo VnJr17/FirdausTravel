@@ -50,6 +50,7 @@
         .sidebar {
             background: var(--white); padding: 20px; border-radius: 12px;
             border: 1px solid #eaeaea; height: fit-content;
+            position: sticky; top: 20px; /* Membuat filter tetap terlihat saat scroll */
         }
         .sidebar h3 { font-size: 16px; margin-bottom: 15px; color: #111; }
         .filter-group { margin-bottom: 20px; }
@@ -95,6 +96,7 @@
         @media (max-width: 992px) {
             .main-container { grid-template-columns: 1fr; }
             .trip-grid { grid-template-columns: repeat(2, 1fr); }
+            .sidebar { position: relative; top: 0; }
         }
         @media (max-width: 600px) {
             .trip-grid { grid-template-columns: 1fr; }
@@ -103,7 +105,7 @@
 </head>
 <body>
 
-    <!-- Header Bersih (Sesuai Request) -->
+    <!-- Header Bersih -->
     <header>
         <a href="index.html" class="logo"><img src="logo.png" alt="Logo"></a>
         <nav>
@@ -121,26 +123,27 @@
 
     <!-- Main Section -->
     <div class="main-container">
-        <!-- Sidebar Filter -->
+        <!-- Sidebar Filter (DIPERBARUI DENGAN ID) -->
         <aside class="sidebar">
             <h3>Filter Pencarian</h3>
             <div class="filter-group">
                 <label>Cari Destinasi</label>
-                <input type="text" placeholder="Cth: Pantai, Gunung...">
+                <input type="text" id="searchInput" placeholder="Cth: Pantai, Gunung, Papandayan...">
             </div>
             <div class="filter-group">
                 <label>Durasi Paket</label>
-                <select>
-                    <option>One Day Trip</option>
-                    <option>2 Hari 1 Malam</option>
-                    <option>3 Hari 2 Malam</option>
+                <select id="durationFilter">
+                    <option value="semua">Semua Durasi</option>
+                    <option value="1 day trip">One Day Trip</option>
+                    <option value="2 hari 1 malam">2 Hari 1 Malam</option>
+                    <option value="3 hari 2 malam">3 Hari 2 Malam</option>
                 </select>
             </div>
-            <button class="btn-terapkan">TERAPKAN FILTER</button>
+            <button class="btn-terapkan" onclick="applyFilter()">TERAPKAN FILTER</button>
         </aside>
 
-        <!-- Daftar Destinasi (Sesuai dengan 9 Template Foto Anda) -->
-        <main class="trip-grid">
+        <!-- Daftar Destinasi -->
+        <main class="trip-grid" id="tripContainer">
             
             <!-- Paket 1: Cangkuang & Sabda Alam -->
             <div class="trip-card">
@@ -190,7 +193,7 @@
                 </div>
             </div>
 
-            <!-- Paket 4: Papandayan (Sudah Dibuatkan Detailnya) -->
+            <!-- Paket 4: Papandayan -->
             <div class="trip-card">
                 <div class="trip-thumb"><img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=400&q=80" alt="Papandayan"></div>
                 <div class="trip-body">
@@ -289,5 +292,37 @@
         </main>
     </div>
 
+    <!-- SCRIPT FILTER PENCARIAN -->
+    <script>
+        function applyFilter() {
+            // Ambil inputan dari user dan ubah ke huruf kecil semua agar tidak sensitif huruf besar/kecil
+            const keyword = document.getElementById('searchInput').value.toLowerCase();
+            const duration = document.getElementById('durationFilter').value.toLowerCase();
+            
+            // Ambil seluruh kartu trip
+            const tripCards = document.querySelectorAll('.trip-card');
+            
+            // Lakukan pengecekan berulang ke setiap kartu
+            tripCards.forEach(card => {
+                // Ambil semua teks yang ada di dalam 1 kartu (Judul, Nama Tempat, dan Tag)
+                const cardText = card.innerText.toLowerCase();
+                
+                // Cek apakah ada kecocokan
+                const matchKeyword = keyword === "" || cardText.includes(keyword);
+                const matchDuration = duration === "semua" || cardText.includes(duration);
+                
+                // Tampilkan kartu jika cocok dengan filter, sembunyikan jika tidak cocok
+                if (matchKeyword && matchDuration) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Jalankan fungsi filter otomatis setiap kali user mengetik atau mengubah dropdown
+        document.getElementById('searchInput').addEventListener('input', applyFilter);
+        document.getElementById('durationFilter').addEventListener('change', applyFilter);
+    </script>
 </body>
 </html>
